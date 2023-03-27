@@ -8,6 +8,7 @@ export const Log = () => {
   const [formErrors, setformErrors] = useState({});
   const [canBeSubmitted, setcanBeSubmitted] = useState(false);
   const [Button, setButton] = useState("Login")
+  const [Hide, setHide] = useState("Show")
   const navigate = useNavigate();
 
   function submitHandler(event) {
@@ -38,7 +39,10 @@ export const Log = () => {
   const handleChange =  (e) => {
     const { name, value } = e.target;
    setFormValues({...formValues,[name]: value});
-  
+   if(Object.keys(formErrors).length != 0){
+     setformErrors(validate(formValues));
+     setcanBeSubmitted(false);
+   }
    };
 
   useEffect(() => {
@@ -55,14 +59,14 @@ export const Log = () => {
         const {status,success, message} = data;
         if(success){
             navigate('/prof');
-        }else{
-            if(status === '401'){
-                setformErrors({password: message});
-                setButton("Login")
-            }else{
-                setformErrors({email: message});
-                setButton("Login")
-            }
+        }else if(!success){
+          if(status == '401'){
+            setformErrors({password: message});
+            setButton('Login')
+          }else if(status == '404'){
+            setformErrors({email: message});
+            setButton('Login');
+          }
         }
         
       })
@@ -76,7 +80,7 @@ export const Log = () => {
       <div className="container">
         <div className="item">
           <form onSubmit={submitHandler}>
-            <table border={2} cellSpacing={10} cellPadding={10}>
+            <table  cellSpacing={10} cellPadding={10}>
               <tr>
                 <th colSpan={2}>Login</th>
               </tr>
@@ -100,11 +104,20 @@ export const Log = () => {
                   <input
                     type="password"
                     name="password"
+                    id="pas"
                     value={formValues.password}
                     onChange={handleChange}
                     required
                   />
-                  <button>show</button>
+                  <button type="button" onClick={()=>{
+                    if(Hide == 'Show'){
+                    document.getElementById('pas').type = 'text';
+                    setHide("Hide");
+                  }else{
+                    document.getElementById('pas').type = 'password';
+                    setHide("Show");
+                  }
+                  }}>{Hide}</button>
                     <p className="errorMessage">{formErrors.password}</p>
                 </td>
               </tr>
