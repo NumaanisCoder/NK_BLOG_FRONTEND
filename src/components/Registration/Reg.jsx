@@ -12,7 +12,7 @@ export const Reg = () => {
   const [Button, setButton] = useState("Register");
   const [Hide, setHide] = useState("Show");
   const navigate = useNavigate();
-  removeCookie("token");
+
 
   function submitHandler(event) {
     event.preventDefault();
@@ -66,10 +66,13 @@ export const Reg = () => {
       })
         .then((response) => response.json())
         .then((data) => {
-          const { status, success, message } = data;
+          const { status, success, message} = data;
           if (success) {
             if(Object.keys(formErrors).length === 0){
-              navigate("/prof");
+              setButton("OK")
+              setTimeout(() => {
+                navigate('/prof')
+              }, 4000);
             }else{
               setButton("Register")
             }

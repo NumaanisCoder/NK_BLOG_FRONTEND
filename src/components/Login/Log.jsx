@@ -53,7 +53,6 @@ export const Log = () => {
   if(canBeSubmitted){
     fetch('https://nk-blog-5ax8.vercel.app/login', {
         method: 'POST',
-        credentials: 'include',
         headers: {
           'Content-Type': 'application/json'
         },

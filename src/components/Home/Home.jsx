@@ -7,7 +7,11 @@ export const Home = () => {
   const [loaded, setloaded] = useState(false);
   useEffect(() => {
     const getData = async () =>{
-    await fetch("https://nk-blog-5ax8.vercel.app/get")
+    await fetch("https://nk-blog-5ax8.vercel.app/get",{
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
       .then((res) => res.json())
       .then((data) => {
         setBlogs(data.blogs);
