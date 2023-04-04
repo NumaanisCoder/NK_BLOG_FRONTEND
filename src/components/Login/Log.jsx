@@ -1,15 +1,20 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import Cookies from "js-cookie";
 import "./Log.css";
+import { useCookies } from "react-cookie";
 export const Log = () => {
   const initialValues = {  email: "", password: "" };
   const [formValues, setFormValues] = useState(initialValues);
   const [formErrors, setformErrors] = useState({});
+  const [cookies, setCookie, removeCookie] = useCookies(['name']);
   const [canBeSubmitted, setcanBeSubmitted] = useState(false);
   const [Button, setButton] = useState("Login")
   const [Hide, setHide] = useState("Show")
   const navigate = useNavigate();
+  removeCookie("token");
+  
 
   function submitHandler(event) {
     event.preventDefault();
@@ -80,7 +85,7 @@ export const Log = () => {
       <div className="container">
         <div className="item">
           <form onSubmit={submitHandler}>
-            <table  cellSpacing={10} cellPadding={10}>
+            <table  cellSpacing={1} cellPadding={10}>
               <tr>
                 <th colSpan={2}>Login</th>
               </tr>
@@ -109,7 +114,7 @@ export const Log = () => {
                     onChange={handleChange}
                     required
                   />
-                  <button type="button" onClick={()=>{
+                  <button type="button" className="btnsec" onClick={()=>{
                     if(Hide == 'Show'){
                     document.getElementById('pas').type = 'text';
                     setHide("Hide");
@@ -123,12 +128,17 @@ export const Log = () => {
               </tr>
               <tr>
                 <th colSpan={2}>
-                  <button type="submit">{Button}</button>
+                  <button type="submit" className="btnsubmit">{Button}</button>
                 </th>
               </tr>
             </table>
           </form>
         </div>
+      </div>
+      <div className="lgdiv">
+        <button className="loginbtn" onClick={()=>{
+          navigate('/signup')
+        }}>Register</button>
       </div>
     </>
   );

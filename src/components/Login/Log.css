@@ -4,4 +4,49 @@
     align-items: center;
 }
 
+table {
+    border: 1px solid black;
+    color: red;
+    border-radius: 50px; /* Set the border radius */
+    overflow: hidden;/* Hide any content that spills over the edges*/
+    background-color: black;
+  }
+  th, td {
+    padding: 10px;
+  }
+  tr{
+    height: 10px;
+  }
+
+.btnsec{
+    color: red;
+    background-color: black;
+    border: 1px solid gray;
+    width: 50px;
+    padding: 5px;
+    border-radius: 33%;
+    margin-left: 2px;
+}
+.btnsec:hover{
+    box-shadow: 2px 2px red;
+    cursor: pointer;
+}
+.btnsubmit{
+    color: red;
+    font-size: larger;
+    background-color: black;
+    border: 1px solid gray;
+    padding: 10px;
+    border-radius: 33%;
+}
+.btnsubmit:hover{
+    box-shadow: 2px 2px red;
+    cursor: pointer;
+}
+
+table input{
+    border-radius: 30px;
+    font-size: medium;
+    padding: 5px;
+}
 

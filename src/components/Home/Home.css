@@ -1,0 +1,21 @@
+.blog{
+    margin-bottom: 5px;
+}
+.blog > img{
+    display: block;
+    margin: auto;
+    width: 200px;
+}
+.blog > h1{
+    font-size: x-large;
+    text-align: center;
+}
+.blog > p{
+    padding: 5px;
+}
+.cate{
+    font-weight: 600;
+}
+.category{
+    color: red;
+}

@@ -1,0 +1,49 @@
+nav{
+    background-color: black;
+    display: sticky;
+    top: 0;
+}
+ul{
+list-style: none;
+display: flex;
+text-decoration: none;
+justify-content: center;
+padding: 15px;
+font-size: larger;
+}
+
+a{
+    color: white;
+    padding-right: 10px;
+    padding-left: 10px;
+    text-decoration: none;
+}
+.logo{
+    padding-top: 3px;
+    text-align: center;
+    color: black;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: red;
+    animation: colorchange 8s linear;
+}
+
+@keyframes colorchange{
+    0%{
+        -webkit-text-stroke-color:red;
+    }
+    25%{
+        -webkit-text-stroke-color:blue;
+    }
+    50%{
+        -webkit-text-stroke-color:green;
+    }
+    75%{
+        -webkit-text-stroke-color:purple;
+    }
+    100%{
+        -webkit-text-stroke-color:orangered;
+    }
+
+}
+
+/* flex justify-center p-1 text-white font-extrabold text-center font-sans text-base */

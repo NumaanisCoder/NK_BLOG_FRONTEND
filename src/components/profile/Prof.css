@@ -1,0 +1,49 @@
+.success{
+    text-align: center;
+    color: Green;
+    font-size: larger;
+    font-weight: 600;
+}
+
+.key{
+    font-size: larger;
+    font-weight: 600;
+}
+.value{
+    color: red;
+}
+.userDetails{
+   margin: auto;
+   text-align: left;
+}
+.formTable{
+    margin: auto;
+}
+
+.submitbtn{
+    color: red;
+    background-color: black;
+    border: 1px solid red;
+    font-size: large;
+    padding: 6px;
+}
+
+.showformbtn{
+    text-align: center;
+    margin-top: 20px;
+}
+.btnshow{
+    width: 120px;
+    color: white;
+    background-color: green;
+}
+
+.formm{
+    display: none;
+    margin: auto;
+    margin-top: 20px;
+}
+*{
+    margin: 0;
+    padding: 0;
+}
