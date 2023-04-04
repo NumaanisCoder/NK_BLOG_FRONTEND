@@ -13,7 +13,6 @@ export const Log = () => {
   const [Button, setButton] = useState("Login")
   const [Hide, setHide] = useState("Show")
   const navigate = useNavigate();
-  removeCookie("token");
   
 
   function submitHandler(event) {
@@ -52,8 +51,9 @@ export const Log = () => {
 
   useEffect(() => {
   if(canBeSubmitted){
-    fetch('/login', {
+    fetch('https://nk-blog-5ax8.vercel.app/login', {
         method: 'POST',
+        credentials: 'include',
         headers: {
           'Content-Type': 'application/json'
         },

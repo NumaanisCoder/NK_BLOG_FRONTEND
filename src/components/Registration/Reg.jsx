@@ -57,7 +57,7 @@ export const Reg = () => {
   useEffect(() => {
     if (canBeSubmitted) {
       if(Object.keys(formErrors).length === 0){
-      fetch("/signup", {
+      fetch("https://nk-blog-5ax8.vercel.app/signup", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

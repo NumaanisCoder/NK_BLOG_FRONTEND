@@ -1,19 +1,20 @@
 import Cookies from 'js-cookie';
 import React, { useState, useEffect } from 'react'
+import { useCookies } from "react-cookie";
 import { useNavigate } from 'react-router-dom';
 import './Prof.css'
 export default function Prof() {
   const navigate = useNavigate();
-  const isAuthenticated = Cookies.get("token");
-  if(!isAuthenticated){
-    navigate('/signup');
-  }
+ 
+  
+ 
 const [user, setuser] = useState({username: 'loading...', email: 'loading...'});
 const [showpost, setShowpost] = useState("Upload Blog");
 const initialValues = { title: "",image: "", content: "", category: ""};
 const [formValues, setFormValues] = useState(initialValues);
 const [formErrors, setformErrors] = useState({});
 const [button, setButton] = useState("Post");
+const [cookies, setCookie, removeCookie] = useCookies(['name']);
 const [success, setSuccess] = useState("");
 const [canBeSubmitted, setcanBeSubmitted] = useState(false);
 
@@ -60,8 +61,9 @@ const validate = (values) => {
 
 
 useEffect(() => {
-    fetch('/login',{
-        method: 'post'
+    fetch('https://nk-blog-5ax8.vercel.app/login',{
+        method: 'post',
+        credentials: 'include'
     })
     .then(res => res.json())
     .then(data => setuser(data.message))
@@ -69,7 +71,7 @@ useEffect(() => {
     //Blog Post
 
     if(canBeSubmitted){
-      fetch('/createblog', {
+      fetch('https://nk-blog-5ax8.vercel.app/createblog', {
         method: "POST",
         headers: {
           'Content-Type': 'application/json'
@@ -165,9 +167,16 @@ useEffect(() => {
     </div>
     <div className="lgdiv">
         <button className="loginbtn" onClick={async ()=>{
-          await fetch('/logout').then(res => res.json()).then(data =>{ const {success} = data; if(success){
-            navigate('/');
-          }})
+          fetch('https://nk-blog-5ax8.vercel.app/logout', {
+            method: 'get',
+            credentials: 'include', // include credentials in cross-origin requests
+          })
+            .then(response => {
+              response.json();
+            }).then(data => console.log(data))
+            .catch(error => {
+             
+            });
         }}>logout</button>
       </div>
     </>
