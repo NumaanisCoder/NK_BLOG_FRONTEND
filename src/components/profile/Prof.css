@@ -18,6 +18,8 @@
 }
 .formTable{
     margin: auto;
+    width: 200px;
+    background-color: white;
 }
 
 .submitbtn{
@@ -27,23 +29,86 @@
     font-size: large;
     padding: 6px;
 }
+.submitbtn:hover{
+    color: black;
+    background-color: red;
+    cursor: pointer;
+}
 
 .showformbtn{
     text-align: center;
     margin-top: 20px;
 }
 .btnshow{
+    margin: 20px; 
     width: 120px;
+    font-weight: bold;
     color: white;
+    padding: 6px;
     background-color: green;
+}
+.btnshow:hover{
+    cursor: pointer;
+    border-color: red;
 }
 
 .formm{
     display: none;
+    justify-content:center;
     margin: auto;
     margin-top: 20px;
 }
 *{
     margin: 0;
     padding: 0;
+}
+select{
+    padding: 10px;
+    
+}
+textarea{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    padding: 5px;
+}
+.userb{
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.blog{
+    padding: 8px;
+    margin-left: 15px; 
+    margin-right: 15px;
+}
+details:hover{
+    cursor: pointer;
+}
+.date{
+    float: right;
+    font-size: small;
+    font-weight: bold;
+}
+
+summary{
+    font-weight: 500;
+}
+.del{
+    padding: 4px;
+    background-color: red;
+    color: white;
+    font-size: small;
+}
+.del:hover{
+    background-color: crimson;
+    cursor: pointer;
+}
+.lgdiv{
+    margin: 40px; 
+}
+
+.oktable{
+   margin: auto;
+   width: 70px;
 }

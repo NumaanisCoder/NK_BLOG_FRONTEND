@@ -1,0 +1,26 @@
+.viewblog > img {
+    display: block;
+    margin: auto;
+    width: 320px;
+    border: 1px solid black; 
+}
+
+.blog-title{
+    font-size: x-large;
+    text-align: center;
+    padding: 10px 0px 12px 0px;
+}
+.blog-content{
+    text-align: left;
+    padding: 13px;
+    font-weight: 400;
+}
+.author{
+    color: red;
+    font-weight: 500;
+}
+.author-p{
+    font-weight: 500; 
+    margin-left: 13px;
+    margin-bottom: 5px;
+}

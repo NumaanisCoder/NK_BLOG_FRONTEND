@@ -1,0 +1,17 @@
+.p-footer{
+    text-align: center;
+    font-size: small;
+    padding: 4px;
+    background-color: black;
+    color: red;
+    background-color: black;
+    padding: 10px;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+.footerforyou{
+  margin-top: 50px;
+}

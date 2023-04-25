@@ -11,12 +11,7 @@ table {
     overflow: hidden;/* Hide any content that spills over the edges*/
     background-color: black;
   }
-  th, td {
-    padding: 10px;
-  }
-  tr{
-    height: 10px;
-  }
+
 
 .btnsec{
     color: red;
@@ -45,7 +40,6 @@ table {
 }
 
 table input{
-    border-radius: 30px;
     font-size: medium;
     padding: 5px;
 }

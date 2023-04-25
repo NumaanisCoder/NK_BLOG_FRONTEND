@@ -12,6 +12,7 @@ export const Reg = () => {
   const [Button, setButton] = useState("Register");
   const [Hide, setHide] = useState("Show");
   const navigate = useNavigate();
+  const url = 'https://nk-blog-theta.vercel.app';
 
 
   function submitHandler(event) {
@@ -57,7 +58,7 @@ export const Reg = () => {
   useEffect(() => {
     if (canBeSubmitted) {
       if(Object.keys(formErrors).length === 0){
-      fetch("https://nk-blog-5ax8.vercel.app/signup", {
+      fetch(`${url}/signup`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -66,13 +67,17 @@ export const Reg = () => {
       })
         .then((response) => response.json())
         .then((data) => {
-          const { status, success, message} = data;
+          const { status, success, message, token} = data;
           if (success) {
             if(Object.keys(formErrors).length === 0){
+              let expiryDate = new Date();
+expiryDate.setTime(expiryDate.getTime() + (7 * 24 * 60 * 60 * 1000));
+              setCookie('token',token,{
+                expires: expiryDate
+                
+              });
+              navigate('/prof')
               setButton("OK")
-              setTimeout(() => {
-                navigate('/prof')
-              }, 4000);
             }else{
               setButton("Register")
             }
@@ -94,12 +99,13 @@ export const Reg = () => {
     }
   }
   }, [canBeSubmitted]);
+
   return (
     <>
       <div className="container">
         <div className="item">
           <form onSubmit={submitHandler}>
-            <table cellSpacing={1} cellPadding={10}>
+            <table cellPadding={'10px'} cellSpacing={'10px'}>
               <tr>
                 <th colSpan={2}>Registration</th>
               </tr>

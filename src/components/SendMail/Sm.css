@@ -1,0 +1,15 @@
+table{
+    margin: auto;
+}
+.smform{
+    margin-top: 10px;
+}
+.smtable{
+    border-radius: 0px;
+}
+.smtable td{
+    padding: 4px;
+}
+th{
+    font-weight: 500;
+}

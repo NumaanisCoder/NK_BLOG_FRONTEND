@@ -1,21 +1,78 @@
 .blog{
-    margin-bottom: 5px;
+    margin-bottom: 4px;
+    padding: 4px;
 }
 .blog > img{
     display: block;
     margin: auto;
-    width: 200px;
+    width: 320px;
 }
 .blog > h1{
-    font-size: x-large;
+    font-size: large;
     text-align: center;
 }
-.blog > p{
-    padding: 5px;
-}
+
 .cate{
+    
     font-weight: 600;
+    font-size: small;
 }
 .category{
     color: red;
+}
+
+.loading h1{
+    text-align: center;
+    margin-top: 100px;
+    animation: colorchange 16s linear;
+}
+
+@keyframes colorchange{
+    0%{
+        color:red;
+    }
+    25%{
+        color:blue;
+    }
+    50%{
+        color:green;
+    }
+    75%{
+       color:purple;
+    }
+    100%{
+       color:orangered;
+    }
+
+}
+
+.datee{
+    color: black;
+    font-size: small;
+    font-weight: bold;
+}
+.date2{
+    color: red;
+    font-size: small;
+}
+
+.summ{
+    color: blue;
+}
+.summ:hover{
+    cursor: pointer;
+}
+
+.Link{
+    border: 2px solid blue;
+    border-top: 2px solid red;
+    border-left: 2px solid red;
+    font-weight: 600;
+    color: blue;
+}
+
+.container1{
+    display: flex;
+   justify-content: space-evenly;
+   padding: 6px;
 }

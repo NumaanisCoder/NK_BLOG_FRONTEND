@@ -1,10 +1,14 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import Cookies from "js-cookie";
 import "./Log.css";
 import { useCookies } from "react-cookie";
+import Cookies from "js-cookie";
+
 export const Log = () => {
+  const navigate = useNavigate();
+ 
+
   const initialValues = {  email: "", password: "" };
   const [formValues, setFormValues] = useState(initialValues);
   const [formErrors, setformErrors] = useState({});
@@ -12,7 +16,7 @@ export const Log = () => {
   const [canBeSubmitted, setcanBeSubmitted] = useState(false);
   const [Button, setButton] = useState("Login")
   const [Hide, setHide] = useState("Show")
-  const navigate = useNavigate();
+  const url = 'https://nk-blog-theta.vercel.app';
   
 
   function submitHandler(event) {
@@ -51,7 +55,7 @@ export const Log = () => {
 
   useEffect(() => {
   if(canBeSubmitted){
-    fetch('https://nk-blog-5ax8.vercel.app/login', {
+    fetch(`${url}/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -60,10 +64,19 @@ export const Log = () => {
       })
       .then(response => response.json())
       .then(data => {
-        const {status,success, message} = data;
+        const {status,success, message, token} = data;
+        let expiryDate = new Date();
+expiryDate.setTime(expiryDate.getTime() + (7 * 24 * 60 * 60 * 1000));
         if(success){
-            navigate('/prof');
-        }else if(!success){
+          setCookie('token',token,{
+            sameSite:"none",
+            secure: true ,
+            expires: expiryDate
+          });
+          navigate('/prof')
+        }
+
+        else if(!success){
           if(status == '401'){
             setformErrors({password: message});
             setButton('Login')
@@ -84,7 +97,7 @@ export const Log = () => {
       <div className="container">
         <div className="item">
           <form onSubmit={submitHandler}>
-            <table  cellSpacing={1} cellPadding={10}>
+            <table  cellPadding={'10px'} cellSpacing={'10px'}>
               <tr>
                 <th colSpan={2}>Login</th>
               </tr>
@@ -138,7 +151,11 @@ export const Log = () => {
         <button className="loginbtn" onClick={()=>{
           navigate('/signup')
         }}>Register</button>
+        <button className="loginbtn" onClick={()=>{
+          navigate('/sendresetlink');
+        }}>Reset Password</button>
       </div>
+      
     </>
   );
 };

@@ -18,6 +18,9 @@ a{
     padding-left: 10px;
     text-decoration: none;
 }
+a:active{
+    color: red;
+}
 .logo{
     padding-top: 3px;
     text-align: center;

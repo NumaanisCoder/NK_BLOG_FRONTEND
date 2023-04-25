@@ -12,12 +12,7 @@ table {
     overflow: hidden;/* Hide any content that spills over the edges*/
     background-color: black;
   }
-  th, td {
-    padding: 10px;
-  }
-  tr{
-    height: 10px;
-  }
+ 
 
 .btnsec{
     color: red;
@@ -29,7 +24,7 @@ table {
     margin-left: 2px;
 }
 .btnsec:hover{
-    box-shadow: 2px 2px red;
+    border-color: red;
     cursor: pointer;
 }
 .btnsubmit{
@@ -41,23 +36,30 @@ table {
     border-radius: 33%;
 }
 .btnsubmit:hover{
-    box-shadow: 2px 2px red;
+    border-color: red;
     cursor: pointer;
 }
 
 table input{
-    border-radius: 30px;
     font-size: medium;
-    padding: 5px;
+
 }
 
 .lgdiv{
+  
     margin-top: 6px;
     text-align: center;
+}
+.lgdiv button{
+    margin: 2px;
 }
 .loginbtn{
     color: red;
     background-color: black;
     padding: 6px;
+}
+.loginbtn:hover{
+    border-color: red;
+    cursor: pointer;
 }
 
