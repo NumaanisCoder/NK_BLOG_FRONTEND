@@ -1,0 +1,10 @@
+.navlinks{
+    position: sticky;
+    top: 0;
+    background-color: black;
+}
+ul{
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+}

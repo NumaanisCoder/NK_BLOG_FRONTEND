@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useCookies } from "react-cookie";
 import "./Reg.css";
+import axios from "axios";
 export const Reg = () => {
   const initialValues = { username: "",email: "", password: "" };
   const [formValues, setFormValues] = useState(initialValues);
@@ -10,6 +11,7 @@ export const Reg = () => {
   const [cookies, setCookie, removeCookie] = useCookies(['name']);
   const [canBeSubmitted, setcanBeSubmitted] = useState(false);
   const [Button, setButton] = useState("Register");
+  const [SendEmailButton, setSendEmailButton] = useState("Send Otp")
   const [Hide, setHide] = useState("Show");
   const navigate = useNavigate();
   const url = 'https://nk-blog-theta.vercel.app';
@@ -107,7 +109,7 @@ expiryDate.setTime(expiryDate.getTime() + (7 * 24 * 60 * 60 * 1000));
           <form onSubmit={submitHandler}>
             <table cellPadding={'10px'} cellSpacing={'10px'}>
               <tr>
-                <th colSpan={2}>Registration</th>
+                <th colSpan={2}><h1 className="th">Registration</h1></th>
               </tr>
               <tr>
                 <td>Username</td>
@@ -117,6 +119,7 @@ expiryDate.setTime(expiryDate.getTime() + (7 * 24 * 60 * 60 * 1000));
                     name="username"
                     value={formValues.name}
                     onChange={handleChange}
+                    placeholder="ex. abc21, nathandrake"
                     required
                   />
                   <p className="errorMessage">{formErrors.username}</p>
@@ -129,9 +132,17 @@ expiryDate.setTime(expiryDate.getTime() + (7 * 24 * 60 * 60 * 1000));
                     type="text"
                     name="email"
                     value={formValues.email}
+                    placeholder="abc@gmail.com"
                     onChange={handleChange}
                     required
                   />
+                  {/* <button type="button" id="sendOtpBtn" className="" onClick={()=>{
+  
+                    axios.post(`${url}/email/verify`,formValues.email);
+                    
+                    setSendEmailButton("Otp Sent"); 
+
+                  }}>Verify Email</button> */}
                   <p className="errorMessage">{formErrors.email}</p>
                 </td>
               </tr>

@@ -1,4 +1,19 @@
-const date = new Date(Date.now());
-const date1 = new Date(Date.now() + 7*24*60*60*1000);
-console.log(date.toLocaleString())
-console.log(date1.toLocaleString())
+const SitemapGenerator = require('sitemap-generator');
+
+// Create a new generator object
+const generator = SitemapGenerator('https://nkblogs.ml', {
+  maxEntriesPerFile: 50000,
+  stripQuerystring: true
+});
+
+// Register event listeners
+generator.on('done', () => {
+  console.log('Sitemap generated');
+});
+
+generator.on('error', (error) => {
+  console.error('Error generating sitemap', error);
+});
+
+// Start the generator
+generator.start();

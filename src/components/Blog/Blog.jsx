@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import './Blog.css'
+import { Helmet } from 'react-helmet'
+import AdSense from '../Adsense/Adsense'
+
 
 const Blog = () => {
     const {id} = useParams();
@@ -16,7 +19,12 @@ const Blog = () => {
     }, [])
   return (
     <div>
+     
         {Loading ? <>
+          <Helmet>
+        <title>{blog.title}</title>
+        <meta name="description" content={blog.content.substring(0,165)} />
+      </Helmet>
         <div className='viewblog'>
         <h1 className='blog-title'>{blog.title}</h1>
         <img src={blog.image} alt="" />
@@ -24,7 +32,9 @@ const Blog = () => {
         <p className='author-p'>Posted By: <span className='author'>{blog.user.username}</span></p>
         </div>
         
-        </> : <h1>Loading...</h1>}
+        </> : <div className="containerloader">
+          <div className='loader'></div>
+          </div>} 
     </div>
   )
 }

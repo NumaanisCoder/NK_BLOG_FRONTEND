@@ -5,11 +5,10 @@
 }
 
 table {
-    border: 1px solid black;
-    color: red;
-    border-radius: 50px; /* Set the border radius */
+    border: 1px solid purple;
+    color: white;
     overflow: hidden;/* Hide any content that spills over the edges*/
-    background-color: black;
+    background-color: transparent;
   }
 
 
@@ -22,25 +21,16 @@ table {
     border-radius: 33%;
     margin-left: 2px;
 }
-.btnsec:hover{
-    box-shadow: 2px 2px red;
-    cursor: pointer;
-}
-.btnsubmit{
-    color: red;
-    font-size: larger;
-    background-color: black;
-    border: 1px solid gray;
-    padding: 10px;
-    border-radius: 33%;
-}
-.btnsubmit:hover{
-    box-shadow: 2px 2px red;
-    cursor: pointer;
-}
+ 
 
 table input{
     font-size: medium;
     padding: 5px;
+}
+.th{
+    text-transform: uppercase;
+    font-size: x-large;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: rgb(184, 34, 230);
 }
 

@@ -9,15 +9,20 @@ import Blog from "./components/Blog/Blog";
 import Footer from "./components/footer/Footer";
 import Res from "./components/ResetPassword/Res";
 import Sm from "./components/SendMail/Sm";
-
+import Edit from "./components/Edit/Edit";
+import Ul from "./components/Navbar/ul/Ul";
 
 function App() {
+
   return (
     <>
       <Router>
     <Navbar/>
+    <Ul/>
+    
         <Routes>
-          <Route path="/" element={<Home/>}/>
+          <Route exact path="/" element={
+              <Home/>}/>
         </Routes>
         <Routes>
           <Route path="/signup" element={<Reg/>}/>
@@ -28,6 +33,7 @@ function App() {
         </Routes>
         <Routes>
           <Route path="/prof" element={<Prof/>}/>
+          <Route path="/prof/userblog/:id/edit" element={<Edit/>}/>
         </Routes>
         <Routes>
           <Route path="/blog/:user/:id" element={<Prof/>}/>
@@ -35,6 +41,7 @@ function App() {
         <Routes>
           <Route path="/blog/:id" element={<Blog/>}/>
         </Routes>
+      
         <Routes>
           <Route path="/resetpassword/:token" element={<Res/>}/>
         </Routes>

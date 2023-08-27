@@ -99,7 +99,7 @@ expiryDate.setTime(expiryDate.getTime() + (7 * 24 * 60 * 60 * 1000));
           <form onSubmit={submitHandler}>
             <table  cellPadding={'10px'} cellSpacing={'10px'}>
               <tr>
-                <th colSpan={2}>Login</th>
+                <th colSpan={2}><h1 className="th">Login</h1></th>
               </tr>
     
               <tr>

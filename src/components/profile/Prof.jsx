@@ -1,28 +1,23 @@
 import Cookies from "js-cookie";
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useCookies } from "react-cookie";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "./Prof.css";
 import axios from "axios";
 export default function Prof() {
   const token = Cookies.get("token");
-  const [cookies, setCookie, removeCookie] = useCookies(['token']);
+  const [cookies, setCookie, removeCookie] = useCookies(["token"]);
   const navigate = useNavigate();
-  if(!token || token === undefined){
-    navigate('/login')
-  }
-  function check(){
-    if(!token || token === undefined){
-      navigate('/login')
-    }
-  }
-  
+  const notify = () => toast("Creating Blog!");
+
   const [user, setuser] = useState({
     username: "loading...",
     email: "loading...",
   });
- 
-  const [userBlogs, setuserBlogs] = useState(null);
+
+  var [userBlogs, setuserBlogs] = useState(null);
   const [blogLoaded, setblogLoaded] = useState(false);
   const [showpost, setShowpost] = useState("Upload Blog");
   const initialValues = { title: "", image: "", content: "", category: "" };
@@ -30,14 +25,20 @@ export default function Prof() {
   const [formErrors, setformErrors] = useState({});
   const [button, setButton] = useState("Post");
   const [success, setSuccess] = useState("");
-  const [file, setfile] = useState(null)
-  const [canBeSubmitted, setcanBeSubmitted] = useState(false);
-  const url = 'https://nk-blog-theta.vercel.app';
-  let formData = new FormData(); 
+  //pagination
+  const [currentPage, setCurrentPage] = useState(1);
 
+  const [file, setfile] = useState(null);
+  const [canBeSubmitted, setcanBeSubmitted] = useState(false);
+  const [info, setinfo] = useState(
+    "Upload your first blog by clicking button below"
+  );
+  const url = "https://nk-blog-theta.vercel.app";
+
+  let formData = new FormData();
   function submitHandler(event) {
     event.preventDefault();
-    console.log(formData)
+    console.log(formData);
     setformErrors(validate(formValues));
     if (Object.keys(formErrors).length === 0) {
       setcanBeSubmitted(true);
@@ -47,10 +48,10 @@ export default function Prof() {
       setButton("Post");
     }
   }
-  function random(milliseconds){ 
+  function random(milliseconds) {
     const date = new Date(milliseconds);
-const formattedDate = date.toLocaleString();
-return formattedDate.substring(0,9);
+    const formattedDate = date.toLocaleString();
+    return formattedDate;
   }
 
   const handleChange = (e) => {
@@ -64,9 +65,8 @@ return formattedDate.substring(0,9);
     }
   };
   const handleFileChange = (e) => {
-    console.log(e.target.files[0]);
     setfile(e.target.files[0]);
-  }
+  };
 
   const validate = (values) => {
     const error = {};
@@ -79,17 +79,17 @@ return formattedDate.substring(0,9);
     if (!values.content) {
       error.content = "content is required";
     }
-    return error; 
+    return error;
   };
 
   useEffect(() => {
-    if(!token){
-      navigate('/login');
+    if (!token) {
+      navigate("/login");
     }
 
     fetch(`${url}/userbytoken/${token}`, {
       method: "get",
-      credentials: "include"
+      credentials: "include",
     })
       .then((res) => res.json())
       .then((data) => setuser(data.message));
@@ -97,14 +97,15 @@ return formattedDate.substring(0,9);
     //Blog Post
 
     if (canBeSubmitted) {
-      formData.append('title',formValues.title);
-      formData.append('content',formValues.content);
-      formData.append('category',formValues.category);
-      formData.append('image',file)
-      console.log("File is: ",formData.get('image'));
-      axios.post(`${url}/createblog/${token}`,formData)
+      formData.append("title", formValues.title);
+      formData.append("content", formValues.content);
+      formData.append("category", formValues.category);
+      formData.append("image", file);
+      console.log("File is: ", formData.get("image"));
+      axios
+        .post(`${url}/createblog/${token}`, formData)
         .then((res) => {
-          const { success } = res.data; 
+          const { success } = res.data;
           if (success) {
             setSuccess("Posted..");
             setButton("Posted");
@@ -121,8 +122,10 @@ return formattedDate.substring(0,9);
         });
     }
 
-    fetch(`${url}/userblogs/${token}`, { method: "get",
-    credentials: "include" })
+    fetch(`${url}/userblogs/${token}`, {
+      method: "get",
+      credentials: "include",
+    })
       .then((res) => res.json())
       .then((data) => {
         setuserBlogs(data.blogs);
@@ -130,9 +133,17 @@ return formattedDate.substring(0,9);
       });
   }, [canBeSubmitted, blogLoaded]);
 
+  //pagination
+  const itemsperpage = 4;
+  const startIndex = (currentPage - 1) * itemsperpage;
+  const endIndex = startIndex + itemsperpage;
+  const maindata = userBlogs;
+  if (blogLoaded) {
+    userBlogs = userBlogs.slice(startIndex, endIndex);
+  }
+
   return (
     <>
-    {check()}
       <div className="content">
         <div>
           <div className="userDetails">
@@ -143,33 +154,95 @@ return formattedDate.substring(0,9);
               Email: <span className="value">{user.email}</span>
             </p>
           </div>
+
+          {blogLoaded ? (
+            maindata.length === 0 ? (
+              <h2 className="blog-info-header">
+                Write & Upload your first blog by clicking Button Below
+              </h2>
+            ) : (
+              <h2 className="blog-info-header">
+                Hii Blogger, Total Blog post is {maindata.length}
+              </h2>
+            )
+          ) : (
+            <h1></h1>
+          )}
           <div className="userblog">
-            <h1 className="userb">My Blogs</h1>
             {blogLoaded ? (
               userBlogs.map((data) => (
-                <>
-            <details className="blog" key={data._id}>
-              
-          <summary>{data.title}<span className="date">Date: {random(data.createdAt)}</span></summary> 
-          <img src={data.image} alt="" />
-          <p>{data.content}</p>
-          <p className="cate">Category: <span className="category">{data.category}</span></p>
-          <button className="del" onClick={()=>{
-            axios.delete(`${url}/userblogs/delete/${data._id}`).then(()=>{
-              setblogLoaded(false);
-            })
-          }}>Delete</button>
-          
-        </details>
-  
-        </>
+                <div>
+                  <details className="bloguser" key={data._id}>
+                    <summary>
+                      {data.title} <br />{" "}
+                      <span className="date">
+                        Date: {random(data.createdAt)}
+                      </span>
+                    </summary>
+                    <div className="det-img">
+                      <img className="detimg" src={data.image} alt="" />
+                    </div>
+                    <p className="det-content">
+                      {data.content.slice(0, 250)} . . . . . .
+                    </p>
+                    <p className="detail-cate">
+                      Category:{" "}
+                      <span className="category">{data.category}</span>
+                    </p>
+                    <button
+                      className="del"
+                      onClick={() => {
+                        axios
+                          .delete(`${url}/userblogs/delete/${data._id}`)
+                          .then(() => {
+                            setblogLoaded(false);
+                          });
+                      }}
+                    >
+                      Delete
+                    </button>
+                    <Link
+                      className="edit"
+                      to={`/prof/userblog/${data._id}/edit`}
+                    >
+                      Edit
+                    </Link>
+                    <Link className="edit view" to={`/blog/${data._id}`}>
+                      View
+                    </Link>
+                  </details>
+                </div>
               ))
             ) : (
-              <div className="lo">
-                <h1>Loading..</h1>
-              </div>
+              <div className="loader" style={{ marginTop: 20 }}></div>
             )}
           </div>
+
+          {/* //Pagination Control */}
+          {blogLoaded && maindata.length > 4 ? (
+            <div className="pagination-control">
+              <h3>
+                Page {currentPage} of {maindata.length / 4}
+              </h3>
+              <div>
+                <button
+                  onClick={() => setCurrentPage(currentPage - 1)}
+                  disabled={currentPage === 1}
+                >
+                  Previous
+                </button>
+                <button
+                  onClick={() => setCurrentPage(currentPage + 1)}
+                  disabled={endIndex >= maindata.length}
+                >
+                  Next
+                </button>
+              </div>
+            </div>
+          ) : (
+            ""
+          )}
+
           <div className="showformbtn">
             <button
               className="btnshow"
@@ -187,97 +260,84 @@ return formattedDate.substring(0,9);
             </button>
           </div>
         </div>
-        {/* //form */} 
+        {/* //form */}
         <div className="formm">
           <form onSubmit={submitHandler}>
-            <table className="oktable" cellPadding={'10px'} cellSpacing={'10px'}>
-              <tr>
-                <th colSpan={2}>Post Blog</th>
-              </tr>
-              <tr>
-                <td>Title</td>
-                <td>
-                  <input
-                    type="text"
-                    name="title"
-                    onChange={handleChange}
-                    value={formValues.title}
-                    required
-                  />
-                </td>
-              </tr>
-              <tr>
-                <td>image</td>
-                <td>
-                  <input
-                    type="file"
-                    name="image"
-                    onChange={handleFileChange}
-                    required
-                   
-                  />
-                </td>
-              </tr>
-              <tr>
-                <td>Content</td>
-                <td>
-                  <textarea
-                    name="content"
-                    id=""
-                    cols="30"
-                    rows="10"
-                    onChange={handleChange}
-                    value={formValues.content}
-                    required
-                  ></textarea>
-                </td>
-              </tr>
-              <tr>
-                <td>Category</td>
-                <td>
-                  <select
-                    name="category"
-                    id=""
-                    onChange={handleChange}
-                    required
-                  >
-                    <option value="Technology">Technology</option>
-                    <option value="Programming">Programming</option>
-                    <option value="Wildlife">Wildlife</option>
-                    <option value="Education">Education</option>
-                    <option value="Personal thought">Personal thought</option>
-                    <option value="Travel">Travel</option>
-                    <option value="Video Games">Video Games</option>
-                    <option value="Anime">Anime</option>
-                    <option value="Movie">Movie</option>
-                    <option value="Sports">Sports</option>
-                    <option value="News">News</option>
-                  </select>
-                </td>
-              </tr>
-              <tr>
-                <th colSpan={2}>
-                  <button className="submitbtn" type="submit">
-                    {button}
-                  </button>
-                </th>
-              </tr>
-              <tr>
-                <th colSpan={2} className="success">
-                  {success}
-                </th>
-              </tr>
-            </table>
+            <div className="form-group">
+              <h2>Post Blog</h2>
+            </div>
+            <div className="form-group">
+              <label htmlFor="title">Title</label>
+              <input
+                type="text"
+                name="title"
+                id="title"
+                onChange={handleChange}
+                value={formValues.title}
+                required
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="image">Image</label>
+              <input
+                type="file"
+                name="image"
+                id="image"
+                onChange={handleFileChange}
+                required
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="content">Content</label>
+              <textarea
+                name="content"
+                id="content"
+                cols="50"
+                rows="10"
+                onChange={handleChange}
+                value={formValues.content}
+                required
+              ></textarea>
+            </div>
+            <div className="form-group">
+              <label htmlFor="category">Category</label>
+              <select
+                name="category"
+                id="category"
+                onChange={handleChange}
+                required
+              >
+                <option value="">Select a category</option>
+                <option value="Technology">Technology</option>
+                <option value="Programming">Programming</option>
+                <option value="Wildlife">Wildlife</option>
+                <option value="Education">Education</option>
+                <option value="Personal thought">Personal thought</option>
+                <option value="Travel">Travel</option>
+                <option value="Video Games">Video Games</option>
+                <option value="Anime">Anime</option>
+                <option value="Movie">Movie</option>
+                <option value="Sports">Sports</option>
+                <option value="News">News</option>
+              </select>
+            </div>
+            <div className="form-group">
+              <button className="submitbtn" type="submit">
+                {button}
+              </button>
+            </div>
+            <div className="form-group success">{success}</div>
           </form>
         </div>
       </div>
       <div className="lgdiv">
         <button
           className="loginbtn"
-        onClick={()=>{
-          removeCookie("token")
-          navigate('/');
-        }}>
+          onClick={() => {
+            removeCookie("token");
+            navigate("/");
+          }}
+        >
           LOGOUT
         </button>
       </div>

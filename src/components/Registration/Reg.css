@@ -5,45 +5,39 @@
     align-items: center;
 }
 
-table {
-    border: 1px solid black;
-    color: red;
-    border-radius: 50px; /* Set the border radius */
-    overflow: hidden;/* Hide any content that spills over the edges*/
-    background-color: black;
-  }
+
  
 
 .btnsec{
-    color: red;
-    background-color: black;
+    color: white;
+    font-weight: 400;
+    background-color: transparent;
     border: 1px solid gray;
     width: 50px;
     padding: 5px;
-    border-radius: 33%;
+    border-radius: 10px;
     margin-left: 2px;
 }
 .btnsec:hover{
-    border-color: red;
+    border-color: purple;
     cursor: pointer;
 }
 .btnsubmit{
-    color: red;
-    font-size: larger;
-    background-color: black;
-    border: 1px solid gray;
-    padding: 10px;
-    border-radius: 33%;
+    color: white;
+   font-size: medium;
+   padding: 3px 10px;
+   height: 30px;
+   border-radius: 25px;
+   border: 2px solid white;
+   background-color: purple;
+   font-weight: 500;
 }
 .btnsubmit:hover{
     border-color: red;
     cursor: pointer;
 }
 
-table input{
-    font-size: medium;
 
-}
 
 .lgdiv{
   
@@ -54,12 +48,14 @@ table input{
     margin: 2px;
 }
 .loginbtn{
-    color: red;
-    background-color: black;
+    background-color: rgb(174, 62, 248);
+    color: white;
+    font-weight: 600;
+    border: 1px solid rgb(161, 91, 209);
     padding: 6px;
 }
 .loginbtn:hover{
-    border-color: red;
+    background-color: purple;
     cursor: pointer;
 }
 

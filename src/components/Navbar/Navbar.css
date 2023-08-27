@@ -1,8 +1,23 @@
-nav{
-    background-color: black;
-    display: sticky;
-    top: 0;
-}
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Lobster&display=swap');
+
+@font-face {
+    font-family: 'CocFont';
+    src: url('C:\Users\91985\Desktop\nba_frontend\cocfont.ttf') format('truetype');
+    /* You might need to adjust the URL based on your folder structure */
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'UnchartedFont';
+    src: url('C:\Users\91985\Desktop\nba_frontend\Base 02.ttf') format('truetype');
+    /* You might need to adjust the URL based on your folder structure */
+    font-weight: normal;
+    font-style: normal;
+  }
+
 ul{
 list-style: none;
 display: flex;
@@ -17,17 +32,20 @@ a{
     padding-right: 10px;
     padding-left: 10px;
     text-decoration: none;
+    font-weight: 800;
 }
-a:active{
+a:hover{
     color: red;
 }
 .logo{
+    font-family: 'CocFont';
     padding-top: 3px;
+    font-size: xx-large;
     text-align: center;
-    color: black;
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: red;
-    animation: colorchange 8s linear;
+    background-color: black;
+    color: white;
+    /* -webkit-text-stroke-width: 0.5px; */
+    /* -webkit-text-stroke-color: rgb(232, 75, 240);  */
 }
 
 @keyframes colorchange{
@@ -50,3 +68,20 @@ a:active{
 }
 
 /* flex justify-center p-1 text-white font-extrabold text-center font-sans text-base */
+
+
+
+@media (max-width: 480px) {
+    .logo{
+    
+        font-family: 'Dancing Script', cursive;
+        font-family: 'Lobster', cursive;
+        color: white;
+        margin-left: 5px;
+        /* -webkit-text-stroke-color: white;  */
+    }
+}
+nav{
+    position: sticky;
+    top: 0;
+}

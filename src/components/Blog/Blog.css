@@ -1,19 +1,31 @@
 .viewblog > img {
     display: block;
     margin: auto;
-    width: 320px;
+    height: auto;
+    width: 90%; 
     border: 1px solid black; 
+    border-radius: 20px;
+    box-shadow: 1px 1px 5px black;
+}
+.viewblog{
+    margin: 5px;
+    padding: 4px;
+    border-radius: 20px;
+    box-shadow: 1px 1px 5px black;
 }
 
 .blog-title{
-    font-size: x-large;
+    font-family: 'CocFont';
+    font-size: medium;
+    font-weight: 200;
     text-align: center;
     padding: 10px 0px 12px 0px;
 }
 .blog-content{
     text-align: left;
+    white-space: pre-line;
     padding: 13px;
-    font-weight: 400;
+    font-weight: 500;
 }
 .author{
     color: red;
@@ -24,3 +36,11 @@
     margin-left: 13px;
     margin-bottom: 5px;
 }
+
+/* Styles for screens with a maximum width of 600 pixels */
+@media (min-width: 600px) {
+    .viewblog > img{
+        width: 500px;
+    }
+  }
+  

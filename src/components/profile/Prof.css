@@ -4,6 +4,11 @@
     font-size: larger;
     font-weight: 600;
 }
+img{
+    text-align: center;
+    margin: auto;
+    width: 300px;
+}
 
 .key{
     font-size: larger;
@@ -13,8 +18,11 @@
     color: red;
 }
 .userDetails{
-   margin: auto;
+    padding: 14px;
+   margin: 10px;
+   box-shadow: 1px 2px 3px black;
    text-align: left;
+   border-radius: 10px;
 }
 .formTable{
     margin: auto;
@@ -30,8 +38,7 @@
     padding: 6px;
 }
 .submitbtn:hover{
-    color: black;
-    background-color: red;
+    transform: scale(0.95);
     cursor: pointer;
 }
 
@@ -43,13 +50,17 @@
     margin: 20px; 
     width: 120px;
     font-weight: bold;
+    border-radius: 10px;
     color: white;
+    border: 2px solid white;
     padding: 6px;
-    background-color: green;
+    background-color: black;
 }
 .btnshow:hover{
     cursor: pointer;
-    border-color: red;
+    color: green;
+    border-color: green;
+    background-color: white;
 }
 
 .formm{
@@ -57,6 +68,7 @@
     justify-content:center;
     margin: auto;
     margin-top: 20px;
+   
 }
 *{
     margin: 0;
@@ -66,27 +78,29 @@ select{
     padding: 10px;
     
 }
-textarea{
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: bold;
-    padding: 5px;
-}
-.userb{
-    text-align: center;
-    margin-top: 10px;
+
+.userblog{
     margin-bottom: 10px;
+   box-sizing: border-box;
 }
 
-.blog{
+
+.bloguser{
     padding: 8px;
+    box-shadow: 1px 1px 10px black;
     margin-left: 15px; 
     margin-right: 15px;
+    margin-top: 6px;
+}
+details{
+    border: 1px solid white;
+    border-radius: 10px;
 }
 details:hover{
     cursor: pointer;
 }
 .date{
-    float: right;
+    color: grey;
     font-size: small;
     font-weight: bold;
 }
@@ -96,19 +110,165 @@ summary{
 }
 .del{
     padding: 4px;
-    background-color: red;
+    background-color: transparent;
     color: white;
     font-size: small;
+    font-weight: 600;
+    box-shadow: 0px 1px 2px black;
+    border-radius: 10px;
+    border: 2px solid red;
+    color: red;
 }
 .del:hover{
     background-color: crimson;
+    color: white;
+    cursor: pointer;
+}
+.edit{
+    padding: 4px;
+    background-color: transparent;
+    color: white;
+    margin: 0px 5px;
+    font-size: small;
+    font-weight: 600;
+    box-shadow: 0px 1px 2px black;
+    border-radius: 10px;
+    border: 2px solid rgb(45, 148, 238);
+    color: rgb(45, 148, 238);
+}
+.edit:hover{
+    background-color: rgb(45, 148, 238);
+    color: white;
     cursor: pointer;
 }
 .lgdiv{
-    margin: 40px; 
+    margin: 40px;  
 }
 
-.oktable{
-   margin: auto;
-   width: 70px;
+.formm{
+   margin: 0px 10px;
+   padding: 20px;
+   background-color: white;
+   box-shadow: 0px 1px 8px black;
+   border: 0;
 }
+.submitbtn{
+    background-color: transparent;
+    color: white;
+    background-color: green;
+    border-color: black;
+    font-family: 'CocFont';
+    padding: 2px 15px;
+    border-radius: 6px;
+    -webkit-text-stroke-width: 0.8px;
+    -webkit-text-stroke-color: black;
+    font-weight: 200;
+    
+}
+
+.detail-cate{
+    margin: 10px 0px;
+    font-weight: 600;
+    font-size: small;
+}
+
+
+.form-group {
+    margin-bottom: 20px;
+    color: black;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  .form-group input[type="text"],
+  .form-group input[type="email"],
+  .form-group input[type="password"],
+  .form-group select,
+  .form-group textarea {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
+  
+  .form-group select {
+    height: 40px;
+  }
+  
+  .form-group textarea {
+    height: 150px;
+  }
+
+  .view{
+    margin-left: 0;
+    color: rgb(183, 38, 255);
+    border-color: rgb(183, 38, 255);
+  }
+  .view:hover{
+    background-color: rgb(177, 21, 254);
+  }
+
+  .det-content{
+    text-align: left;
+    white-space: pre-line;
+  }
+
+  .det-img{
+    text-align: center;
+    margin: auto;
+  }
+  .detimg{
+    width: 200px;
+    box-shadow: 1px 1px 2px black;
+  }
+
+  .pagination-control{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+  margin-top: 10px;  
+  }
+ 
+  .pagination-control button{
+    margin: 2px;
+    margin-top: 10px;
+    color: white;
+    background-color: rgb(177, 21, 254);
+    border: 2px solid white;
+    padding: 6px;
+    font-weight:400;
+    border-radius: 10px;
+  }
+
+  .pagination-control button:hover{
+    cursor: pointer;
+    opacity: 75%;
+  }
+
+  .pagination-control button:disabled{
+    background-color: red;
+    cursor: not-allowed;
+  }
+ 
+  .blog-info-header{
+    margin-bottom: 14px;
+    text-align: center; 
+  }
+
+  .pagination-control h3{
+    display: block;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  details::selection .userblog{
+    height: auto;
+  }
