@@ -1,22 +1,23 @@
 import Cookies from "js-cookie";
 import React, { useState, useEffect } from "react";
+import { Helmet } from 'react-helmet'
 import { Link, useNavigate } from "react-router-dom";
 import { useCookies } from "react-cookie";
-import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./Prof.css";
 import axios from "axios";
-export default function Prof() {
+import ThemeButton from "../ThemeButton/ThemeButton";
+export default function Prof(props) {
+  const {mode} = props;
   const token = Cookies.get("token");
   const [cookies, setCookie, removeCookie] = useCookies(["token"]);
   const navigate = useNavigate();
-  const notify = () => toast("Creating Blog!");
 
   const [user, setuser] = useState({
     username: "loading...",
     email: "loading...",
   });
-
+ 
   var [userBlogs, setuserBlogs] = useState(null);
   const [blogLoaded, setblogLoaded] = useState(false);
   const [showpost, setShowpost] = useState("Upload Blog");
@@ -33,6 +34,7 @@ export default function Prof() {
   const [info, setinfo] = useState(
     "Upload your first blog by clicking button below"
   );
+
   const url = "https://nk-blog-theta.vercel.app";
 
   let formData = new FormData();
@@ -144,6 +146,9 @@ export default function Prof() {
 
   return (
     <>
+    <Helmet>
+      <title style={{fontWeight: 700}}>{user.username}</title> 
+    </Helmet>
       <div className="content">
         <div>
           <div className="userDetails">
@@ -153,6 +158,7 @@ export default function Prof() {
             <p className="key">
               Email: <span className="value">{user.email}</span>
             </p>
+            <ThemeButton/>
           </div>
 
           {blogLoaded ? (
@@ -169,7 +175,7 @@ export default function Prof() {
             <h1></h1>
           )}
           <div className="userblog">
-            {blogLoaded ? (
+            {blogLoaded ?(
               userBlogs.map((data) => (
                 <div>
                   <details className="bloguser" key={data._id}>
@@ -213,6 +219,7 @@ export default function Prof() {
                   </details>
                 </div>
               ))
+             
             ) : (
               <div className="loader" style={{ marginTop: 20 }}></div>
             )}

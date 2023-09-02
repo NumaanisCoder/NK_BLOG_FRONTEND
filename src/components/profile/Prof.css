@@ -55,11 +55,12 @@ img{
     border: 2px solid white;
     padding: 6px;
     background-color: black;
+    transition: all 1s;
 }
 .btnshow:hover{
     cursor: pointer;
-    color: green;
-    border-color: green;
+    color: black;
+    border-color: white;
     background-color: white;
 }
 
@@ -95,6 +96,7 @@ select{
 details{
     border: 1px solid white;
     border-radius: 10px;
+    transition: all 0.5s ease;
 }
 details:hover{
     cursor: pointer;
@@ -241,12 +243,12 @@ summary{
   .pagination-control button{
     margin: 2px;
     margin-top: 10px;
-    color: white;
-    background-color: rgb(177, 21, 254);
-    border: 2px solid white;
-    padding: 6px;
-    font-weight:400;
-    border-radius: 10px;
+    color: black;
+    background-color: white;
+    border: 1px solid black; 
+    padding: 4px;
+    font-weight:500;
+    border-radius: 5px;
   }
 
   .pagination-control button:hover{
@@ -272,3 +274,14 @@ summary{
   details::selection .userblog{
     height: auto;
   }
+.switch-mode{
+margin-top: 6px;
+  padding: 6px;
+}
+.switch-mode:hover{
+  cursor: pointer;
+}
+
+body{
+  transition: all 1s ease-out;
+}

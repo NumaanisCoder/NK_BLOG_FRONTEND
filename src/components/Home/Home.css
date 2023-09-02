@@ -8,6 +8,8 @@
     border-radius: 10px;
     box-shadow: 1px 2px 10px purple;
 }
+
+
 .imagee{
     display: block;
     margin: auto;
@@ -51,31 +53,19 @@
 }
 
 .Link{
-  
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-size: smaller;
-  font-family: 'CocFont';
-    border: 2px outset silver;
-   background-color: rgb(195, 23, 247);
-    border-radius: 30px;
-    box-shadow: 0px 1px 2px rgb(222, 135, 249);
-    color: white;
-    font-weight: 100;
-    -webkit-text-stroke-width: 2px;
-    -webkit-text-stroke-color: black;
-  
+    border: 2px solid;
+   background-color: white;
+    border-radius: 4px;
+    border-color: black;
+    color: black;
+    font-weight: 400; 
+
 }
-.Link img{
-  margin-left: 3px;
-  width: 25px;
-} 
+
 .Link:hover{
-  border-style: inset;
-  transform: scale(0.95);
- color: white;
-  
+  background-color: grey;
+  transform: scale(1.1);
+  color: black;
 }
 
 
@@ -141,11 +131,13 @@
 
   .search-input {
     padding: 8px;
-    border: 1px solid #ccc;
+    border: 1px solid blue;
+    outline-style: solid;
+    outline-color: black;
     width: 60%;
     border-radius: 4px;
     border: 0;
-    outline: 0;
+    outline: 4;
     font-size: medium;
   }
 
@@ -154,12 +146,12 @@
     background-color: transparent;
     border: none;
     border-radius: 4px;
-    border: 2px solid white;
+    border: 2px solid red;
     cursor: pointer;
     width: 110px;
     font-weight: 600;
     font-size: medium;
-    color: white;
+    color: red;
     margin-left: 3px;
     
   }

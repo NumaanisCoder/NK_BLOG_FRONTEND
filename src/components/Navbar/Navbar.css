@@ -38,7 +38,8 @@ a:hover{
     color: red;
 }
 .logo{
-    font-family: 'CocFont';
+    font-family: 'Dancing Script', cursive;
+    font-family: 'Lobster', cursive;
     padding-top: 3px;
     font-size: xx-large;
     text-align: center;

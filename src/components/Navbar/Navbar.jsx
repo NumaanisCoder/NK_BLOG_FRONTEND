@@ -8,7 +8,6 @@ export const Navbar = () => {
     <div className='navphoto'>
 
       <h2 className='logo'>NK-BLOGS</h2> 
-      
   
     </div>
 

@@ -23,13 +23,13 @@
     cursor: pointer;
 }
 .btnsubmit{
-    color: white;
+    color: black;
    font-size: medium;
    padding: 3px 10px;
    height: 30px;
-   border-radius: 25px;
+   border-radius: 5px;
    border: 2px solid white;
-   background-color: purple;
+   background-color: white;
    font-weight: 500;
 }
 .btnsubmit:hover{
@@ -48,14 +48,15 @@
     margin: 2px;
 }
 .loginbtn{
-    background-color: rgb(174, 62, 248);
-    color: white;
+    background-color: white;
+    color: black;
     font-weight: 600;
-    border: 1px solid rgb(161, 91, 209);
-    padding: 6px;
+    padding: 4px;
+    opacity: 80%;
+    border: 1px solid black;
 }
 .loginbtn:hover{
-    background-color: purple;
+    opacity: 100%;
     cursor: pointer;
 }
 

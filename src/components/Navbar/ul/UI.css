@@ -2,9 +2,39 @@
     position: sticky;
     top: 0;
     background-color: black;
+    border-bottom: 1px solid red;
+    animation: borderColor infinite 4s ;
+    animation: name duration timing-function delay iteration-count direction fill-mode;
 }
 ul{
     text-decoration: none;
     display: flex;
     justify-content: center;
+}
+
+@keyframes borderColor {
+    0%{
+        border-bottom-color: blue;
+    }
+    25%{
+        border-bottom-color: green;
+    }
+    50%{
+        border-bottom-color: purple;
+    }
+    75%{
+        border-bottom-color: yellow;
+    }
+    
+}
+li{
+    font-family: 'Dancing Script', cursive;
+    font-family: 'Lobster', cursive;
+    font-size: larger;
+}
+
+.active{
+    border: 1px solid white;
+    border-radius: 5px;
+    color: red;
 }

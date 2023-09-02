@@ -2,11 +2,9 @@ import React from "react";
 import { useState, useEffect } from "react";
 import "./Home.css";
 import { Link } from "react-router-dom";
-import { FirstName } from "../../App";
-import axios, { Axios } from "axios";
-import { useImage } from "react-image";
+import { Helmet } from 'react-helmet'
 import { LazyLoadImage } from "react-lazy-load-image-component";
-import eyeIcon from './eyeimage.png';
+
 
 export const Home = () => {
 
@@ -66,14 +64,19 @@ export const Home = () => {
 
   return (
     <>
-       
+        <Helmet>
+        <title>NK Blogs</title>
+        <meta
+      name="description"
+      content="NK Blogs an React app that gives user to view, share and create your own blog"
+    />
+      </Helmet>
 
        <div>
-
        <div className="search-container">
-  <input type="search" id="searchInput" onSubmit={getSearchBlogs} onChange={HandleChange} className="search-input" name="query" placeholder="Search Blog" />
-  <button type="button" className="search-button" onClick = {getSearchBlogs}>Search</button>
-</div>
+  <input type="search" id="searchInput" onSubmit={getSearchBlogs} onChange={HandleChange} style={{ borderColor: 'red' }} className="search-input" name="query" placeholder="Search Blog" />
+  <button type="button" className="search-button" onClick = {getSearchBlogs}>Search</button>  
+    </div>
     <div className="blog-container">
         {loaded ? (
           Blogs.map((data) => (
@@ -97,10 +100,10 @@ export const Home = () => {
                
               <div className="container1">
                 <div>
-              <Link className="Link" to={`/blog/${data._id}`}>READ <img className="eye-icon" src={eyeIcon} alt="" /></Link>
+              <Link className="Link" to={`/blog/${data._id}`}>READ</Link>
                 </div>
                 <div>
-                <p className="datee">
+                <p className="cate">
                 Posted On:
                 <span className="date2"> {random(data.createdAt)}</span>
               </p>

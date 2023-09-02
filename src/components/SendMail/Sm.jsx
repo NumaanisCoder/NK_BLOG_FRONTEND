@@ -2,7 +2,9 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import './Sm.css';
+
 const Sm = () => {
+
     const navigate = useNavigate();
     const [formValues, setformValues] = useState({email: ''});
     const [button, setbutton] = useState("Send Link")

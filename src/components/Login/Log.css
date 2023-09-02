@@ -5,11 +5,12 @@
 }
 
 table {
-    border: 1px solid purple;
     color: white;
     overflow: hidden;/* Hide any content that spills over the edges*/
     background-color: transparent;
   }
+
+
 
 
 .btnsec{
@@ -30,7 +31,5 @@ table input{
 .th{
     text-transform: uppercase;
     font-size: x-large;
-    -webkit-text-stroke-width: 2px;
-    -webkit-text-stroke-color: rgb(184, 34, 230);
 }
 
