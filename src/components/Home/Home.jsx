@@ -43,9 +43,9 @@ export const Home = () => {
     setLoad(true);
   }
 
+
   async function getSearchBlogs(){
     setloaded(false);
-    document.querySelector('button').innerText = 'Searching...'
     await fetch('https://nk-blog-theta.vercel.app/blog/query', {
       method: "POST",
       headers: {
@@ -53,7 +53,7 @@ export const Home = () => {
       },
       body: JSON.stringify(searchQuery)
     })
-    .then(res => res.json().then(data => {setBlogs(data.blogs); setloaded(true); document.querySelector('button').innerText = 'Search'}))
+    .then(res => res.json().then(data => {setBlogs(data.blogs); setloaded(true)}))
   } 
   
   useEffect(() => {
@@ -72,10 +72,11 @@ export const Home = () => {
     />
       </Helmet>
 
-       <div>
-       <div className="search-container">
-  <input type="search" id="searchInput" onSubmit={getSearchBlogs} onChange={HandleChange} style={{ borderColor: 'red' }} className="search-input" name="query" placeholder="Search Blog" />
-  <button type="button" className="search-button" onClick = {getSearchBlogs}>Search</button>  
+  
+       <div className="search-container" onSubmit={getSearchBlogs}>
+  <input type="search" id="searchInput" onSubmit={getSearchBlogs} onChange={HandleChange} className="search-input" name="query" placeholder="Search Blog" />
+
+  <button type="button" className="search-button" style={{display: "flex"}} onClick = {getSearchBlogs}><i class="fa-solid fa-magnifying-glass"></i></button>  
     </div>
     <div className="blog-container">
         {loaded ? (
@@ -100,7 +101,7 @@ export const Home = () => {
                
               <div className="container1">
                 <div>
-              <Link className="Link" to={`/blog/${data._id}`}>READ</Link>
+              <Link className="Link" to={`/blog/${data._id}`}><i class="fa-brands fa-readme"></i></Link>
                 </div>
                 <div>
                 <p className="cate">
@@ -118,13 +119,14 @@ export const Home = () => {
           ))
         ):
         (
-          <div className="containerloader">
-          <div className="loader">
-          </div>
+          <div className="loader-container">
+            <div className="containerloader loader">
+
+            </div>
           </div>
         )}
       </div>
-      </div>
+      
     </>
 
 );

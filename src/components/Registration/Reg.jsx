@@ -5,17 +5,16 @@ import { useCookies } from "react-cookie";
 import "./Reg.css";
 import axios from "axios";
 export const Reg = () => {
-  const initialValues = { username: "",email: "", password: "" };
+  const initialValues = { username: "", email: "", password: "", otp:""};
   const [formValues, setFormValues] = useState(initialValues);
   const [formErrors, setformErrors] = useState({});
-  const [cookies, setCookie, removeCookie] = useCookies(['name']);
+  const [cookies, setCookie, removeCookie] = useCookies(["name"]);
   const [canBeSubmitted, setcanBeSubmitted] = useState(false);
   const [Button, setButton] = useState("Register");
-  const [SendEmailButton, setSendEmailButton] = useState("Send Otp")
+  const [SendEmailButton, setSendEmailButton] = useState("Send Otp");
   const [Hide, setHide] = useState("Show");
   const navigate = useNavigate();
-  const url = 'https://nk-blog-theta.vercel.app';
-
+  const url = "https://nk-blog-theta.vercel.app";
 
   function submitHandler(event) {
     event.preventDefault();
@@ -31,7 +30,7 @@ export const Reg = () => {
     const error = {};
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/i;
     const usernameRegex = /^[A-Za-z0-9]+$/i;
-    if(!usernameRegex.test(values.username)){
+    if (!usernameRegex.test(values.username)) {
       error.username = "username should not contain space";
     }
     if (!values.email) {
@@ -52,54 +51,57 @@ export const Reg = () => {
     if (Object.keys(formErrors).length !== 0) {
       setformErrors(validate(formValues));
       setcanBeSubmitted(false);
-    }else{
-      setButton("Register")
+    } else {
+      setButton("Register");
     }
+
   };
 
   useEffect(() => {
     if (canBeSubmitted) {
-      if(Object.keys(formErrors).length === 0){
-      fetch(`${url}/signup`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formValues),
-      })
-        .then((response) => response.json())
-        .then((data) => {
-          const { status, success, message, token} = data;
-          if (success) {
-            if(Object.keys(formErrors).length === 0){
-              let expiryDate = new Date();
-expiryDate.setTime(expiryDate.getTime() + (7 * 24 * 60 * 60 * 1000));
-              setCookie('token',token,{
-                expires: expiryDate
-                
-              });
-              navigate('/prof')
-              setButton("OK")
-            }else{
-              setButton("Register")
-            }
-          } else if (!success) {
-            if (status == "409") {
-              if (message === "username already taken") {
-                setformErrors({ username: message });
-                setButton("Register");
-              }else{
-                setformErrors({ email: message });
+      if (Object.keys(formErrors).length === 0) {
+        fetch(`${url}/signup`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formValues),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            const { status, success, message, token } = data;
+            console.log(token);
+            if (success) {
+              if (Object.keys(formErrors).length === 0) {
+                let expiryDate = new Date();
+                expiryDate.setTime(
+                  expiryDate.getTime() + 7 * 24 * 60 * 60 * 1000
+                );
+                setCookie("Emailtoken", token, {
+                  expires: expiryDate,
+                });
+                navigate("/user/otp-verification");
+                setButton("OK");
+              } else {
                 setButton("Register");
               }
+            } else if (!success) {
+              if (status == "409") {
+                if (message === "username already taken") {
+                  setformErrors({ username: message });
+                  setButton("Register");
+                } else {
+                  setformErrors({ email: message });
+                  setButton("Register");
+                }
+              }
             }
-          }
-        })
-        .catch((error) => {
-          console.log("Error While creating user", error);
-        });
+          })
+          .catch((error) => {
+            console.log("Error While creating user", error);
+          });
+      }
     }
-  }
   }, [canBeSubmitted]);
 
   return (
@@ -107,9 +109,11 @@ expiryDate.setTime(expiryDate.getTime() + (7 * 24 * 60 * 60 * 1000));
       <div className="container">
         <div className="item">
           <form onSubmit={submitHandler}>
-            <table cellPadding={'10px'} cellSpacing={'10px'}>
+            <table cellPadding={"10px"} cellSpacing={"10px"}>
               <tr>
-                <th colSpan={2}><h1 className="th">Registration</h1></th>
+                <th colSpan={2}>
+                  <h1 className="th">Registration</h1>
+                </th>
               </tr>
               <tr>
                 <td>Username</td>
@@ -125,7 +129,7 @@ expiryDate.setTime(expiryDate.getTime() + (7 * 24 * 60 * 60 * 1000));
                   <p className="errorMessage">{formErrors.username}</p>
                 </td>
               </tr>
-              <tr>
+              <tr id="emailtr">
                 <td>Email</td>
                 <td>
                   <input
@@ -134,18 +138,16 @@ expiryDate.setTime(expiryDate.getTime() + (7 * 24 * 60 * 60 * 1000));
                     value={formValues.email}
                     placeholder="abc@gmail.com"
                     onChange={handleChange}
+                    id="email"
+                    onInput={() => {}}
                     required
                   />
-                  {/* <button type="button" id="sendOtpBtn" className="" onClick={()=>{
-  
-                    axios.post(`${url}/email/verify`,formValues.email);
-                    
-                    setSendEmailButton("Otp Sent"); 
-
-                  }}>Verify Email</button> */}
+              
                   <p className="errorMessage">{formErrors.email}</p>
                 </td>
               </tr>
+              
+
               <tr>
                 <td>Password</td>
                 <td>
@@ -187,9 +189,14 @@ expiryDate.setTime(expiryDate.getTime() + (7 * 24 * 60 * 60 * 1000));
         </div>
       </div>
       <div className="lgdiv">
-        <button className="loginbtn" onClick={()=>{
-          navigate('/login')
-        }}>Already Have Account? Login</button>
+        <button
+          className="loginbtn"
+          onClick={() => {
+            navigate("/login");
+          }}
+        >
+          Already Have Account? Login
+        </button>
       </div>
     </>
   );

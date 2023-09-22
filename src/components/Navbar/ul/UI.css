@@ -9,6 +9,7 @@
 ul{
     text-decoration: none;
     display: flex;
+    align-items: center;
     justify-content: center;
 }
 
@@ -31,10 +32,15 @@ li{
     font-family: 'Dancing Script', cursive;
     font-family: 'Lobster', cursive;
     font-size: larger;
+    box-sizing: border-box; 
+    margin: 0px 35px;  
 }
 
 .active{
-    border: 1px solid white;
+    border: 0.5px solid white;
     border-radius: 5px;
     color: red;
+}
+li a{
+    font-size: x-large;
 }

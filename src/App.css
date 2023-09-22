@@ -2,3 +2,12 @@ body{
     background-color: black;
     color: white;  
   }
+ 
+  .app-wrapper {
+    display: flex;
+    flex-direction: column;
+  
+  }
+  
+  /* Style the rest of your components as needed */
+  

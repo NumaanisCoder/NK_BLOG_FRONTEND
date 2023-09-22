@@ -37,7 +37,7 @@ const Blog = () => {
         <p className='author-p'>Posted By: <span className='author'>{blog.user.username}</span></p>
         </div>
         
-        </> : <div className="containerloader">
+        </> : <div className="containerloader" style={{marginTop: 160}}>
           <div className='loader'></div>
           </div>} 
     </div>

@@ -2,19 +2,17 @@
   font-family: 'Dancing Script', cursive;
     font-family: 'Lobster', cursive;
     text-align: center;
-    font-size: small;
+    font-size: medium;
     padding: 4px;
     background-color: black;
     color: red;
     background-color: black;
     padding: 10px;
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%; 
-    border-top: 1px solid blue;
-}
-
-.footerforyou{
-  margin-top: 50px;
+    
+  }
+  
+  .footerforyou{
+  position: fixed;
+  width: 100%;
+  bottom: 0;
 }

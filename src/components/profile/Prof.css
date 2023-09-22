@@ -43,19 +43,24 @@ img{
 }
 
 .showformbtn{
-    text-align: center;
+  display: flex;
+  justify-content: center;
     margin-top: 20px;
 }
 .btnshow{
-    margin: 20px; 
-    width: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-bottom: 7px;
     font-weight: bold;
+    font-size: medium;
     border-radius: 10px;
     color: white;
     border: 2px solid white;
-    padding: 6px;
+    padding: 5px;
     background-color: black;
-    transition: all 1s;
+    transition: all 500ms;
 }
 .btnshow:hover{
     cursor: pointer;
@@ -83,6 +88,16 @@ select{
 .userblog{
     margin-bottom: 10px;
    box-sizing: border-box;
+}
+
+.blog-nav-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.blog-nav-container button{
+  font-size: larger;
 }
 
 

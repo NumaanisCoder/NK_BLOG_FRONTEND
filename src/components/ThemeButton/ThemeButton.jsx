@@ -7,7 +7,7 @@ const ThemeButton = () => {
     <div>
         <div>
       <button style={{border: 2, borderColor: 'white', color
-            : 'black', borderRadius: 10}} className="switch-mode" id="mode" onClick={()=>{
+            : 'black', borderRadius: 10}} className="switch-mode" id="mode" on onClick={()=>{
               if(lightMode === "Light Mode"){
                 document.body.style.color = "black";
                 document.body.style.backgroundColor = "white";

@@ -20,7 +20,7 @@ export default function Prof(props) {
  
   var [userBlogs, setuserBlogs] = useState(null);
   const [blogLoaded, setblogLoaded] = useState(false);
-  const [showpost, setShowpost] = useState("Upload Blog");
+  const [showpost, setShowpost] = useState("Write Blog");
   const initialValues = { title: "", image: "", content: "", category: "" };
   const [formValues, setFormValues] = useState(initialValues);
   const [formErrors, setformErrors] = useState({});
@@ -228,44 +228,46 @@ export default function Prof(props) {
           {/* //Pagination Control */}
           {blogLoaded && maindata.length > 4 ? (
             <div className="pagination-control">
-              <h3>
-                Page {currentPage} of {maindata.length / 4}
-              </h3>
-              <div>
+              <div className="blog-nav-container">
+                <h3>
+                  Page {currentPage} of {maindata.length / 4}
+                </h3>
+                <div>
                 <button
                   onClick={() => setCurrentPage(currentPage - 1)}
                   disabled={currentPage === 1}
-                >
-                  Previous
+                  >
+                  <i class="fa-solid fa-arrow-left"></i>
                 </button>
                 <button
                   onClick={() => setCurrentPage(currentPage + 1)}
                   disabled={endIndex >= maindata.length}
                 >
-                  Next
+                  <i class="fa-solid fa-arrow-right"></i>
                 </button>
+                </div>
               </div>
             </div>
           ) : (
             ""
           )}
 
-          <div className="showformbtn">
+          {blogLoaded ? (<div className="showformbtn">
             <button
               className="btnshow"
               onClick={() => {
-                if (showpost == "Upload Blog") {
+                if (showpost == "Write Blog") {
                   document.querySelector(".formm").style.display = "block";
-                  setShowpost("Hide Post Blog");
+                  setShowpost("Blog");
                 } else {
                   document.querySelector(".formm").style.display = "none";
-                  setShowpost("Upload Blog");
+                  setShowpost("Write Blog");
                 }
               }}
             >
-              {showpost}
+              <i class='fa-solid fa-pen-nib'></i>   &nbsp;   {showpost}
             </button>
-          </div>
+          </div>):(<></>)}
         </div>
         {/* //form */}
         <div className="formm">
@@ -337,7 +339,7 @@ export default function Prof(props) {
           </form>
         </div>
       </div>
-      <div className="lgdiv">
+      <div className="lgdiv" style={{marginBottom: 80}}>
         <button
           className="loginbtn"
           onClick={() => {

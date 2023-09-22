@@ -11,11 +11,13 @@ import Res from "./components/ResetPassword/Res";
 import Sm from "./components/SendMail/Sm";
 import Edit from "./components/Edit/Edit";
 import Ul from "./components/Navbar/ul/Ul";
+import OTPVerification from "./components/OTP/OTPVerification";
 
 function App() {
 
   return (
     <>
+    <div className="app-wrapper">
       <Router>
     <Navbar/>
     <Ul/>
@@ -29,7 +31,9 @@ function App() {
         </Routes>
         <Routes>
           <Route path="/login" element={<Log/>}/>
-      
+        </Routes>
+        <Routes>
+          <Route path="/user/otp-verification" element={<OTPVerification/>}/>
         </Routes>
         <Routes>
           <Route path="/prof" element={<Prof/>}/>
@@ -50,6 +54,7 @@ function App() {
         </Routes>
         <Footer/>
       </Router>
+      </div>
     </>
   );
 }
