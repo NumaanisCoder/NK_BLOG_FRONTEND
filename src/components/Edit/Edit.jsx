@@ -75,7 +75,7 @@ const Edit = () => {
       }
 
       const fetchBlog = async () =>{
-        await fetch(`https://nk-blog-theta.vercel.app/blog/${id}`).then((res)=> res.json().then((data) => {setFormValues(data.blog); setLoading(true)})); 
+        await fetch(`${url}/blog/id/${id}`).then((res)=> res.json().then((data) => {setFormValues(data.blog); setLoading(true)})); 
     }
 
       useEffect(() => {
@@ -122,7 +122,8 @@ const Edit = () => {
     <h2>Update Blog</h2>
   </div>
   <div className="form-group">
-    <label htmlFor="title">Title</label>
+    <label style={{color
+    : "black"}} htmlFor="title">Title</label>
     <input
       type="text"
       name="title" 
@@ -133,17 +134,18 @@ const Edit = () => {
     />
   </div>
   <div className="form-group">
-    <label htmlFor="image">Image</label>
+    <label style={{color
+    : "black"}} htmlFor="image">Image</label>
     <input
       type="file"
       name="image"
       id="image"
       onChange={handleFileChange} 
-      required
     />
   </div>
   <div className="form-group">
-    <label htmlFor="content">Content</label>
+    <label style={{color
+    : "black"}} htmlFor="content">Content</label>
     <textarea
       name="content"
       id="content"
@@ -155,7 +157,8 @@ const Edit = () => {
     ></textarea>
   </div>
   <div className="form-group">
-    <label htmlFor="category">Category</label>
+    <label style={{color
+    : "black"}} htmlFor="category">Category</label>
     <select
       name="category"
       id="category"

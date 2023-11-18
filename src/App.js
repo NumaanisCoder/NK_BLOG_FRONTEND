@@ -12,6 +12,7 @@ import Sm from "./components/SendMail/Sm";
 import Edit from "./components/Edit/Edit";
 import Ul from "./components/Navbar/ul/Ul";
 import OTPVerification from "./components/OTP/OTPVerification";
+import Privacy from "./components/Privacy/Privacy";
 
 function App() {
 
@@ -43,7 +44,7 @@ function App() {
           <Route path="/blog/:user/:id" element={<Prof/>}/>
         </Routes>
         <Routes>
-          <Route path="/blog/:id" element={<Blog/>}/>
+          <Route path="/blog/:title" element={<Blog/>}/>
         </Routes>
       
         <Routes>
@@ -51,6 +52,9 @@ function App() {
         </Routes>
         <Routes>
           <Route path="/sendresetlink" element={<Sm/>}/>
+        </Routes>
+        <Routes>
+          <Route path="/webapp/privacypolicy" element={<Privacy/>}/>
         </Routes>
         <Footer/>
       </Router>

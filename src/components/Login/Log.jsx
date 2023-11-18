@@ -96,62 +96,64 @@ expiryDate.setTime(expiryDate.getTime() + (7 * 24 * 60 * 60 * 1000));
     <>
       <div className="container">
         <div className="item">
-          <form onSubmit={submitHandler}>
-            <table  cellPadding={'10px'} cellSpacing={'10px'}>
-              <tr>
-                <th colSpan={2}><h1 className="th">Login</h1></th>
-              </tr>
-    
-              <tr>
-                <td>Email</td>
-                <td>
-                  <input
-                    type="text"
-                    name="email"
-                    value={formValues.email}
-                    onChange={handleChange}
-                    required
-                  />
-                    <p className="errorMessage">{formErrors.email}</p>
-                </td>
-              </tr>
-              <tr>
-                <td>Password</td>
-                <td>
-                  <input
-                    type="password"
-                    name="password"
-                    id="pas"
-                    value={formValues.password}
-                    onChange={handleChange}
-                    required
-                  />
-                  <button type="button" className="btnsec" onClick={()=>{
-                    if(Hide == 'Show'){
-                    document.getElementById('pas').type = 'text';
-                    setHide("Hide");
-                  }else{
-                    document.getElementById('pas').type = 'password';
-                    setHide("Show");
-                  }
-                  }}>{Hide}</button>
-                    <p className="errorMessage">{formErrors.password}</p>
-                </td>
-              </tr>
-              <tr>
-                <th colSpan={2}>
-                  <button type="submit" className="btnsubmit">{Button}</button>
-                </th>
-              </tr>
-            </table>
-          </form>
+    <h1 className="login-header">Login</h1>
+        <form onSubmit={submitHandler}>
+  <div className="form-container">
+
+    <div className="form-group">
+      <label>Email</label>
+      <input
+        type="text"
+        name="email"
+        className="loginInput"
+        value={formValues.email}
+        onChange={handleChange}
+        required
+      />
+      <p className="errorMessage" style={{color: 'red'}}>{formErrors.email}</p>
+    </div>
+
+      <label style={{fontWeight: 600}}>Password</label>
+    <div className="form-group">
+      <div className="passwordfield">
+      <input
+        type={Hide === 'Show' ? 'password' : 'text'}
+        name="password"
+        className="loginInput"
+        value={formValues.password}
+        onChange={handleChange}
+        required
+      />
+      <button
+        type="button"
+        className="btnsexy"
+        onClick={() => {
+          setHide(Hide === 'Show' ? 'Hide' : 'Show');
+        }}
+      >
+        {Hide}
+      </button>
+      </div>
+      <div>
+      <p className="errorMessage" style={{color: 'red'}}>{formErrors.password}</p>
+      </div>
+    </div>
+
+    <div className="form-group">
+      <button type="submit" className="btnsubmit">
+        {Button}
+      </button>
+    </div>
+  </div>
+</form>
+
         </div>
       </div>
       <div className="lgdiv">
-        <button className="loginbtn" onClick={()=>{
+        <button className="navbtn" onClick={()=>{
           navigate('/signup')
         }}>Register</button>
-        <button className="loginbtn" onClick={()=>{
+        <button className="navbtn" onClick={()=>{
           navigate('/sendresetlink');
         }}>Reset Password</button>
       </div>

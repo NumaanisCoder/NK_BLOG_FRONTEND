@@ -108,89 +108,71 @@ export const Reg = () => {
     <>
       <div className="container">
         <div className="item">
-          <form onSubmit={submitHandler}>
-            <table cellPadding={"10px"} cellSpacing={"10px"}>
-              <tr>
-                <th colSpan={2}>
-                  <h1 className="th">Registration</h1>
-                </th>
-              </tr>
-              <tr>
-                <td>Username</td>
-                <td>
-                  <input
-                    type="text"
-                    name="username"
-                    value={formValues.name}
-                    onChange={handleChange}
-                    placeholder="ex. abc21, nathandrake"
-                    required
-                  />
-                  <p className="errorMessage">{formErrors.username}</p>
-                </td>
-              </tr>
-              <tr id="emailtr">
-                <td>Email</td>
-                <td>
-                  <input
-                    type="text"
-                    name="email"
-                    value={formValues.email}
-                    placeholder="abc@gmail.com"
-                    onChange={handleChange}
-                    id="email"
-                    onInput={() => {}}
-                    required
-                  />
-              
-                  <p className="errorMessage">{formErrors.email}</p>
-                </td>
-              </tr>
-              
+        <form onSubmit={submitHandler}>
+  <div>
+    <h1>Registration</h1>
+  </div>
+  <div  className="form-group">
+    <label>Username</label>
+    <input
+      type="text"
+      name="username"
+      value={formValues.name}
+      onChange={handleChange}
+      required
+    />
+    <p className="errorMessage" style={{color: 'red'}}>{formErrors.username}</p>
+  </div>
+  <div className="form-group">
+    <label>Email</label>
+    <input
+      type="text"
+      name="email"
+      value={formValues.email}
+      onChange={handleChange}
+      id="email"
+      required
+    />
+    <p className="errorMessage" style={{color: 'red'}}>{formErrors.email}</p>
+  </div>
+  <label style={{fontWeight: 600}}>Password</label>
+    <div className="form-group">
+      <div className="passwordfield">
+      <input
+        type={Hide === 'Show' ? 'password' : 'text'}
+        name="password"
+        className="loginInput"
+        value={formValues.password}
+        onChange={handleChange}
+        required
+      />
+      <button
+        type="button"
+        className="btnsexy"
+        onClick={() => {
+          setHide(Hide === 'Show' ? 'Hide' : 'Show');
+        }}
+      >
+        {Hide}
+      </button>
+      </div>
+      <div>
+      <p className="errorMessage" style={{color: 'red'}}>{formErrors.password}</p>
+      </div>
+    </div>
 
-              <tr>
-                <td>Password</td>
-                <td>
-                  <input
-                    type="password"
-                    name="password"
-                    id="pas"
-                    value={formValues.password}
-                    onChange={handleChange}
-                    required
-                  />
-                  <button
-                    type="button"
-                    className="btnsec"
-                    onClick={() => {
-                      if (Hide == "Show") {
-                        document.getElementById("pas").type = "text";
-                        setHide("Hide");
-                      } else {
-                        document.getElementById("pas").type = "password";
-                        setHide("Show");
-                      }
-                    }}
-                  >
-                    {Hide}
-                  </button>
-                  <p className="errorMessage">{formErrors.password}</p>
-                </td>
-              </tr>
-              <tr>
-                <th colSpan={2}>
-                  <button type="submit" className="btnsubmit">
-                    {Button}
-                  </button>
-                </th>
-              </tr>
-            </table>
-          </form>
+  <div>
+    <button type="submit" className="btnsubmit">
+      {Button}
+    </button>
+  </div>
+</form>
+
         </div>
       </div>
       <div className="lgdiv">
         <button
-          className="loginbtn"
+          className="navbtn"
           onClick={() => {
             navigate("/login");
           }}

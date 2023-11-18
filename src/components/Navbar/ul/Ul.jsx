@@ -6,8 +6,8 @@ const Ul = () => {
     <div className='navlinks'>
        <nav>
       <ul>
-            <li><NavLink className='li' to='/' ctiveClassName="active" ><i class="fa-solid fa-house"></i></NavLink></li>      
-            <li><NavLink className='li' to='/prof'><i class="fa-solid fa-user"></i></NavLink></li>    
+            <li><NavLink className='li' to='/' ctiveClassName="active" >Home</NavLink></li>      
+            <li><NavLink className='li' to='/prof'>Account</NavLink></li>    
         </ul>
       </nav>
     </div>

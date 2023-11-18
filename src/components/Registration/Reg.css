@@ -5,58 +5,43 @@
     align-items: center;
 }
 
-
- 
-
-.btnsec{
-    color: white;
-    font-weight: 400;
-    background-color: transparent;
-    border: 1px solid gray;
-    width: 50px;
-    padding: 5px;
-    border-radius: 10px;
-    margin-left: 2px;
-}
-.btnsec:hover{
-    border-color: purple;
-    cursor: pointer;
-}
 .btnsubmit{
-    color: black;
+    color: white;
    font-size: medium;
    padding: 3px 10px;
    height: 30px;
    border-radius: 5px;
-   border: 2px solid white;
-   background-color: white;
+   border: 2px solid rgb(145, 15, 231);
+   background-color: rgb(145, 15, 231);
    font-weight: 500;
 }
 .btnsubmit:hover{
-    border-color: red;
+    opacity: .9;
     cursor: pointer;
 }
 
 
 
 .lgdiv{
-  
     margin-top: 6px;
     text-align: center;
 }
 .lgdiv button{
     margin: 2px;
 }
-.loginbtn{
-    background-color: white;
-    color: black;
-    font-weight: 600;
+.navbtn{
+    background-color: black;
+    color: white;
+    font-weight: 500;
     padding: 4px;
-    opacity: 80%;
-    border: 1px solid black;
+    opacity: 100%;
+    border: 2px solid black;
 }
 .loginbtn:hover{
-    opacity: 100%;
+    opacity: 90%;
     cursor: pointer;
+}
+.passwordgroup input{
+    width: 10px;
 }
 

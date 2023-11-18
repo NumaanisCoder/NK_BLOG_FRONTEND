@@ -1,10 +1,10 @@
 .navlinks{
     position: sticky;
     top: 0;
-    background-color: black;
-    border-bottom: 1px solid red;
-    animation: borderColor infinite 4s ;
-    animation: name duration timing-function delay iteration-count direction fill-mode;
+    z-index: 10;
+    background-color: white;
+    box-shadow: 1px 1px 1px 1px  black;
+
 }
 ul{
     text-decoration: none;
@@ -31,16 +31,17 @@ ul{
 li{
     font-family: 'Dancing Script', cursive;
     font-family: 'Lobster', cursive;
-    font-size: larger;
+    font-size: x-large;
     box-sizing: border-box; 
     margin: 0px 35px;  
 }
 
 .active{
-    border: 0.5px solid white;
+    border: 2px solid black;
     border-radius: 5px;
-    color: red;
+    color: rgb(145, 15, 231);
 }
 li a{
+    color: black;
     font-size: x-large;
 }

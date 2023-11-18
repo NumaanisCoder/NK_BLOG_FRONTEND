@@ -10,6 +10,7 @@
 .viewblog{
     margin: 5px;
     padding: 4px;
+    margin-bottom: 50px;
     border-radius: 20px;
     box-shadow: 1px 1px 5px black;
 }
@@ -29,7 +30,7 @@
     font-weight: 500;
 }
 .author{
-    color: red;
+    color: rgb(145, 15, 231);
     font-weight: 500;
 }
 .author-p{

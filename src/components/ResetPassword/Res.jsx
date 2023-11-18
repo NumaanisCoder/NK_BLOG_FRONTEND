@@ -64,28 +64,7 @@ const Res = () => {
     }, [validPassword]);
   return (
     <>
-    <div className='update'>
-        <form onSubmit={submitHandler}>
-            <table cellSpacing={'20px'} cellPadding={'10px'}>
-                <tr>
-                    <th colSpan={2}>Update Password</th>
-                </tr>
-                <tr>
-            <input type="password" id='pas' onChange={suiii}  placeholder='Enter new Password' required />
-                </tr> 
-                <tr>
-            <input type="text" id='confpas' name='password' onChange={handleChange} placeholder='Confirm New Password' required />
-<p>{error}</p>
-                </tr>
-                <tr>
-                    <th>
-
-            <button className='btnsubmit2'>{btn}</button>
-                    </th>
-                </tr>
-            </table>
-        </form>
-    </div>
+    
     </>
   )
 }

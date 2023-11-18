@@ -6,9 +6,7 @@ import { useCookies } from "react-cookie";
 import "react-toastify/dist/ReactToastify.css";
 import "./Prof.css";
 import axios from "axios";
-import ThemeButton from "../ThemeButton/ThemeButton";
-export default function Prof(props) {
-  const {mode} = props;
+export default function Prof() {
   const token = Cookies.get("token");
   const [cookies, setCookie, removeCookie] = useCookies(["token"]);
   const navigate = useNavigate();
@@ -147,7 +145,7 @@ export default function Prof(props) {
   return (
     <>
     <Helmet>
-      <title style={{fontWeight: 700}}>{user.username}</title> 
+      <title>{user.username}</title> 
     </Helmet>
       <div className="content">
         <div>
@@ -158,7 +156,7 @@ export default function Prof(props) {
             <p className="key">
               Email: <span className="value">{user.email}</span>
             </p>
-            <ThemeButton/>
+        
           </div>
 
           {blogLoaded ? (
@@ -180,7 +178,8 @@ export default function Prof(props) {
                 <div>
                   <details className="bloguser" key={data._id}>
                     <summary>
-                      {data.title} <br />{" "}
+                      {data.title} <span style={{float: "right", color: "gray"}}>{data.views} views</span>
+                       <br />
                       <span className="date">
                         Date: {random(data.createdAt)}
                       </span>
@@ -189,7 +188,7 @@ export default function Prof(props) {
                       <img className="detimg" src={data.image} alt="" />
                     </div>
                     <p className="det-content">
-                      {data.content.slice(0, 250)} . . . . . .
+                      {data.content.slice(0, 250)}
                     </p>
                     <p className="detail-cate">
                       Category:{" "}
@@ -213,7 +212,7 @@ export default function Prof(props) {
                     >
                       Edit
                     </Link>
-                    <Link className="edit view" to={`/blog/${data._id}`}>
+                    <Link className="edit view" to={`/blog/${data.title.replace(/ /g,"~")}`}>
                       View
                     </Link>
                   </details>
@@ -230,12 +229,11 @@ export default function Prof(props) {
             <div className="pagination-control">
               <div className="blog-nav-container">
                 <h3>
-                  Page {currentPage} of {maindata.length / 4}
+                  Page {currentPage} of {parseInt(Math.ceil(maindata.length / 4))}
                 </h3>
                 <div>
                 <button
-                  onClick={() => setCurrentPage(currentPage - 1)}
-                  disabled={currentPage === 1}
+                  onClick={() => setCurrentPage(currentPage - 1)}               disabled={currentPage === 1}
                   >
                   <i class="fa-solid fa-arrow-left"></i>
                 </button>
@@ -276,7 +274,8 @@ export default function Prof(props) {
               <h2>Post Blog</h2>
             </div>
             <div className="form-group">
-              <label htmlFor="title">Title</label>
+              <label style={{color
+    : "black"}} htmlFor="title">Title</label>
               <input
                 type="text"
                 name="title"
@@ -287,7 +286,8 @@ export default function Prof(props) {
               />
             </div>
             <div className="form-group">
-              <label htmlFor="image">Image</label>
+              <label style={{color
+    : "black"}} htmlFor="image">Image</label>
               <input
                 type="file"
                 name="image"
@@ -297,7 +297,8 @@ export default function Prof(props) {
               />
             </div>
             <div className="form-group">
-              <label htmlFor="content">Content</label>
+              <label style={{color
+    : "black"}} htmlFor="content">Content</label>
               <textarea
                 name="content"
                 id="content"
@@ -309,7 +310,8 @@ export default function Prof(props) {
               ></textarea>
             </div>
             <div className="form-group">
-              <label htmlFor="category">Category</label>
+              <label style={{color
+    : "black"}} htmlFor="category">Category</label>
               <select
                 name="category"
                 id="category"
@@ -341,7 +343,7 @@ export default function Prof(props) {
       </div>
       <div className="lgdiv" style={{marginBottom: 80}}>
         <button
-          className="loginbtn"
+          className="navbtn"
           onClick={() => {
             removeCookie("token");
             navigate("/");
