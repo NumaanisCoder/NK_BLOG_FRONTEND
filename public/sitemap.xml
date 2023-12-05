@@ -1,16 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset
-      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
-
-
-<url>
-  <loc>https://nkblogs.netlify.app/</loc>
-  <lastmod>2023-09-04T06:17:13+00:00</lastmod>
-</url>
-
-
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc>https://contentcanvas.netlify.app/</loc>
+        <lastmod>2023-12-02T09:39:32+01:00</lastmod>
+        <priority>1.0</priority>
+    </url>
+    <url>
+        <loc>https://contentcanvas.netlify.app/blog/</loc>
+        <lastmod>2023-12-02T09:39:32+01:00</lastmod>
+        <priority>1.0</priority>
+    </url>
+    <url>
+        <loc>https://contentcanvas.netlify.app/prof/userblog/</loc>
+        <lastmod>2023-12-02T09:39:32+01:00</lastmod>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://contentcanvas.netlify.app/prof/</loc>
+        <lastmod>2023-12-02T09:39:32+01:00</lastmod>
+        <priority>1.0</priority>
+    </url>
+    <url>
+        <loc>https://contentcanvas.netlify.app/signup</loc>
+        <lastmod>2023-12-02T09:39:32+01:00</lastmod>
+        <priority>1.0</priority>
+    </url>
+    <url>
+        <loc>https://contentcanvas.netlify.app/login</loc>
+        <lastmod>2023-12-02T09:39:32+01:00</lastmod>
+        <priority>1.0</priority>
+    </url>
+    <url>
+        <loc>https://contentcanvas.netlify.app/user/otp-verification</loc>
+        <lastmod>2023-12-02T09:39:32+01:00</lastmod>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://contentcanvas.netlify.app/sendresetlink</loc>
+        <lastmod>2023-12-02T09:39:32+01:00</lastmod>
+        <priority>0.2</priority>
+    </url>
+    <url>
+        <loc>https://contentcanvas.netlify.app/webapp/privacypolicy</loc>
+        <lastmod>2023-12-02T09:39:32+01:00</lastmod>
+        <priority>0.8</priority>
+    </url>
 </urlset>

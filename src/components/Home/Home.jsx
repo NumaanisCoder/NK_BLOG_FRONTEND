@@ -3,13 +3,14 @@ import { useState, useEffect } from "react";
 import "./Home.css";
 import { Helmet } from "react-helmet";
 import BlogCard from "../BlogCard/BlogCard";
+import SkeletonLoader from "../Skeleton/SkeletonLoader";
+import Footer from "../footer/Footer";
 
 export const Home = () => {
   const storedData = JSON.parse(sessionStorage.getItem("blogs"));
   const [Blogs, setBlogs] = useState(null);
   const [loaded, setloaded] = useState(false);
   const [searchQuery, setsearchQuery] = useState({ query: "" });
-
 
   const getData = async () => {
     await fetch("https://nk-blog-theta.vercel.app/get")
@@ -29,7 +30,6 @@ export const Home = () => {
       getData();
     }
   }
-
 
   async function getSearchBlogs() {
     setloaded(false);
@@ -67,7 +67,7 @@ export const Home = () => {
           name="description"
           content="ContentCanvas an React app that gives user to view, share and create your own blog"
         />
-        <link rel='canonical' href='https://contentcanvas.netlify.app/' />
+        <link rel="canonical" href="https://contentcanvas.netlify.app/" />
       </Helmet>
 
       <div className="search-container" onSubmit={getSearchBlogs}>
@@ -93,11 +93,18 @@ export const Home = () => {
         {loaded ? (
           Blogs.map((data) => <BlogCard data={data} />)
         ) : (
-          <div className="loader-container">
-            <div className="containerloader loader"></div>
-          </div>
+          <div className="">
+            
+          <SkeletonLoader/>
+          <SkeletonLoader/>
+          <SkeletonLoader/>
+          <SkeletonLoader/>
+  
+  
+         </div>
         )}
       </div>
+  
     </>
   );
 };

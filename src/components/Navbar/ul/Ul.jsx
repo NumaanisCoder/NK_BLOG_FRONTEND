@@ -1,13 +1,13 @@
 import React from 'react'
 import { Link, NavLink } from 'react-router-dom';
-import './UI.css';
+import style from './UI.module.css';
 const Ul = () => {
   return (
-    <div className='navlinks'>
+    <div className={style.navlinks}>
        <nav>
-      <ul>
-            <li><NavLink className='li' to='/' ctiveClassName="active" >Home</NavLink></li>      
-            <li><NavLink className='li' to='/prof'>Account</NavLink></li>    
+      <ul className={style.NavUL}>
+            <li className={style.Navli}><NavLink className={style.li} to='/' activeClassName={style.selected} >Home</NavLink></li>      
+            <li className={style.Navli}><NavLink className={style.li} to='/prof' activeClassName={style.selected}>Account</NavLink></li>    
         </ul>
       </nav>
     </div>

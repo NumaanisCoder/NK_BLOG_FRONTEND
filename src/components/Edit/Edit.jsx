@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import './Edit.css';
 import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
+import Instruction from '../Helper/Instruction';
 
 const Edit = () => {
     const {id} = useParams();
@@ -67,7 +68,7 @@ const Edit = () => {
         setformErrors(validate(formValues));
         if (Object.keys(formErrors).length === 0) {
           setcanBeSubmitted(true);
-          setButton("Posting..");
+          setButton("Updating..");
         } else {
           setcanBeSubmitted(false);
           setButton("Post");
@@ -189,6 +190,9 @@ const Edit = () => {
     {success}
   </div>
 </form>
+<div className="edit-helper">
+<Instruction/>
+</div>
     </div>
 ):(
 <div className="containerloader">

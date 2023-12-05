@@ -2,9 +2,10 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import './Blog.css'
 import { Helmet } from 'react-helmet'
-import AdSense from '../Adsense/Adsense'
-import ThemeButton from '../ThemeButton/ThemeButton'
 import WhatsAppShareButton from '../shareButton/washarebtn'
+import SkeletonLoader from '../Skeleton/SkeletonLoader'
+import ReactMarkdown from 'react-markdown'
+import Footer from '../footer/Footer'
 
 
 
@@ -36,17 +37,18 @@ const Blog = () => {
         <img src={blog.image} alt="" />
         <br />
        
-            
-        <p className='blog-content'>{blog.content}</p>
+        <ReactMarkdown className="blog-content">{blog.content}</ReactMarkdown>
+   
 
         <WhatsAppShareButton shareUrl={`https://contentcanvas.netlify.app/blog/${blog.title.replace(/ /g,"~")}`}/>
         </div>
-        
-        </> : <div className="containerloader" style={{marginTop: 160}}>
-          <div className='loader'></div>
+
+        </> : <div className="" >
+          
+          <SkeletonLoader/>
           </div>} 
     </div>
-  )
+  ) 
 }
 
 export default Blog

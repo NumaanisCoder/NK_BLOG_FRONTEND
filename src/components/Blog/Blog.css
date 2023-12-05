@@ -1,39 +1,54 @@
-.viewblog > img {
+.viewblog > img{
     display: block;
     margin: auto;
     height: auto;
-    width: 90%; 
+    height: 250px;
+    object-fit: contain;
+    background-color: black;
     border: 1px solid black; 
-    border-radius: 20px;
+    border-radius: 5px;
     box-shadow: 1px 1px 5px black;
 }
-.viewblog{
-    margin: 5px;
-    padding: 4px;
-    margin-bottom: 50px;
-    border-radius: 20px;
+p > img {
+    display: flex;
+    height: 200px;
+    object-fit: contain;
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: black;
     box-shadow: 1px 1px 5px black;
 }
 
+
+
+.viewblog{
+    font-family: 'AmazonFont';
+    box-sizing: border-box;
+    padding: 4px;
+    margin-bottom: 50px;
+}
+
 .blog-title{
-    font-family: 'Dancing Script', cursive;
-    font-family: 'Lobster', cursive;
-    font-size: xx-large;
+    font-family: 'AmazonFont';
+    font-size: x-large;
     font-weight: 200;
     text-align: center;
     padding: 10px 0px 12px 0px;
 }
 .blog-content{
+    font-family: 'AmazonFont';
     text-align: left;
     white-space: pre-line;
-    padding: 13px;
+    padding: 10px 4px 19px 15px;
     font-weight: 500;
 }
 .author{
+    font-family: 'AmazonFont';
     color: rgb(145, 15, 231);
     font-weight: 500;
 }
 .author-p{
+    font-family: 'AmazonFont';
     font-weight: 500; 
     margin-left: 13px;
     margin-bottom: 5px;
@@ -44,6 +59,36 @@
     .viewblog > img{
         width: 500px;
     }
-  }
+    .blog-content{
+        font-size: larger;
+        padding: 10px 4px 19px 35px;
+    }
+    .blog-title{
+        font-size: xx-large;
+    }
+}
+@media (max-width: 500px) {
+    .blog-title{
+        text-align: left;
+        font-size: x-large;
+    }
+    p > img{
+        height: 180px;
+    }
+    
+}
 
+ul strong{
+    color: #231651;
+}
+
+ul, ol {
+    margin: 0em 0;
+    padding: 0;
+  }
   
+  /* Adjust the spacing for li */
+  li {
+    margin: -0.5em 0;
+    padding: 0;
+  } 

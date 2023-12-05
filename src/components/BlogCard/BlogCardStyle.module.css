@@ -1,6 +1,6 @@
 .container {
     display: grid;
-    grid-template-rows: 1.5fr 1.5fr;
+    grid-template-rows: 1fr 1fr;
     height: 10%;
     width: 95%;
     background-color: white;
@@ -10,27 +10,31 @@
     border-radius: 10px;
     row-gap: 2px;
     box-shadow: 1px 1px 4px rgb(234, 49, 234);
+    font-family: 'AmazonFont';
 }
 
 /* Styling Text */
 .text_container {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'AmazonFont';
     box-sizing: border-box;
 
 }
 
 .title {
+    font-family: 'AmazonFont';
     font-size: larger;
     padding: 2px 4px;
     text-align: center;
 }
 
 .username {
+    font-family: 'AmazonFont';
     text-align: left;
     padding: 4px 4px;
 }
 
 .content {
+    font-family: 'AmazonFont';
     margin-top: 10px;
     font-size: medium;
     padding: 4px 4px;
@@ -42,6 +46,8 @@
    
 }
 .Link a{
+    text-decoration: none;
+    font-family: 'AmazonFont';
     border: none;
     border-radius: 4px;
     padding: 4px 4px;
@@ -58,6 +64,7 @@
 }
 
 .date {
+    font-family: 'AmazonFont';
     font-size: medium;
     padding: 4px 4px;
     margin-top: 5px;
@@ -79,7 +86,8 @@
     box-shadow: 0px 1px 17px 2px rgba(0,0,0,0.48);
     -webkit-box-shadow: 0px 1px 17px 2px rgba(0,0,0,0.48);
     -moz-box-shadow: 0px 1px 17px 2px rgba(0,0,0,0.48);
-    object-fit: fill;
+    object-fit: contain;
+    background-color: black;
 }
 
 @media (min-width: 768px) {

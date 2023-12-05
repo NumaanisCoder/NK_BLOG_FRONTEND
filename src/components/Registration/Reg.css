@@ -3,6 +3,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family: 'AmazonFont';
 }
 
 .btnsubmit{
@@ -30,6 +31,7 @@
     margin: 2px;
 }
 .navbtn{
+    font-family: 'AmazonFont';
     background-color: black;
     color: white;
     font-weight: 500;

@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import './Res.css';
+import style from './Res.module.css';
 
 const Res = () => {
     const {token} = useParams();
@@ -33,9 +33,7 @@ const Res = () => {
         setformValues({...formValues,[name]:value});
         
     }
-    function suiii(){
-        seterror("");
-    }
+   
 
     useEffect(() => {
         if(token){
@@ -64,7 +62,24 @@ const Res = () => {
     }, [validPassword]);
   return (
     <>
-    
+    <div className={style.ResContainer}>
+        <h2>Reset Password</h2>
+        <form className={style.ResForm} onSubmit={submitHandler}>
+            <div className={style.formGroup}>
+                <label htmlFor="">Enter New Password</label>
+                <input id='pas' onChange={handleChange} name='password' type="password" />
+            </div>
+            <div className={style.formGroup}>
+            <label htmlFor="">Confirm New Password</label>
+                <input id='confpas' type="text" />
+                <p>{error}</p>
+            </div>
+
+            <div className={style.formGroup}>
+                <button>{btn}</button>
+            </div>
+        </form>
+    </div>
     </>
   )
 }

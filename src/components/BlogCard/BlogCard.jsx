@@ -33,8 +33,6 @@ const {username} = data.user;
       <div className={styles.image_container}>
         <img src={image} alt="" srcset="" /> 
       </div>
-
-
       <div className={styles.text_container}> 
       <div>
         <h2 className={styles.title}>{title}</h2>

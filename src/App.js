@@ -13,11 +13,13 @@ import Edit from "./components/Edit/Edit";
 import Ul from "./components/Navbar/ul/Ul";
 import OTPVerification from "./components/OTP/OTPVerification";
 import Privacy from "./components/Privacy/Privacy";
+import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 
 function App() {
 
   return (
     <>
+    <SkeletonTheme baseColor="#202020" highlightColor="#444">
     <div className="app-wrapper">
       <Router>
     <Navbar/>
@@ -59,6 +61,7 @@ function App() {
         <Footer/>
       </Router>
       </div>
+      </SkeletonTheme>
     </>
   );
 }

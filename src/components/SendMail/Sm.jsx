@@ -26,7 +26,7 @@ const Sm = () => {
     setbutton("Sending..");
     event.preventDefault();
     axios
-      .post("http://localhost:5500/user/resetpassword", formValues)
+      .post("https://nk-blog-theta.vercel.app/user/resetpassword", formValues)
       .then((res) => {
         const { success, message } = res.data;
         console.log(res.data);
@@ -49,7 +49,7 @@ const Sm = () => {
 
   return (
     <div className="form-containerSm">
-        <h2 style={{marginBottom:20}}>Send Reset Link</h2>
+        <h2 style={{marginBottom:20}}>Send Reset Link!</h2>
       <form onSubmit={submitHandler}>
         <div className="form-group">
           <label>Email</label>
@@ -58,7 +58,7 @@ const Sm = () => {
               type="email"
               onChange={handleChange}
               name="email"
-              placeholder=""
+              placeholder="Enter your email"
               required
             />
             <p>{error}</p>

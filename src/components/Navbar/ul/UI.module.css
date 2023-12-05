@@ -6,7 +6,9 @@
     box-shadow: 1px 1px 1px 1px  black;
 
 }
-ul{
+.NavUL{
+    padding: 10px;
+    list-style: none;
     text-decoration: none;
     display: flex;
     align-items: center;
@@ -28,20 +30,17 @@ ul{
     }
     
 }
-li{
-    font-family: 'Dancing Script', cursive;
-    font-family: 'Lobster', cursive;
+.Navli{
+    font-family: 'AmazonFont';
     font-size: x-large;
     box-sizing: border-box; 
     margin: 0px 35px;  
+    color: black;
+    text-decoration: none;
 }
 
-.active{
+.selected{
     border: 2px solid black;
     border-radius: 5px;
-    color: rgb(145, 15, 231);
-}
-li a{
-    color: black;
-    font-size: x-large;
+    color: red;
 }

@@ -18,6 +18,7 @@ img{
     color: rgb(145, 15, 231);
 }
 .userDetails{
+  font-family: 'AmazonFont';
     padding: 14px;
    margin: 10px;
    box-shadow: 1px 2px 3px black;
@@ -67,6 +68,7 @@ img{
 }
 
 .formm{
+    font-family: 'AmazonFont';
     display: none;
     justify-content:center;
     margin: auto;
@@ -83,6 +85,7 @@ select{
 }
 
 .userblog{
+  font-family: 'AmazonFont';
     margin-bottom: 10px;
    box-sizing: border-box;
 }
@@ -106,6 +109,7 @@ select{
     margin-top: 6px;
 }
 details{
+  font-family: 'AmazonFont';
     border: 1px solid white;
     border-radius: 10px;
     transition: all 0.5s ease;
@@ -139,6 +143,7 @@ summary{
     cursor: pointer;
 }
 .edit{
+  text-decoration: none;
     padding: 4px;
     background-color: transparent;
     color: white;
@@ -243,6 +248,7 @@ summary{
   }
 
   .pagination-control{
+    font-family: 'AmazonFont';
   display: flex;
   justify-content: center;
   text-align: center;
@@ -273,6 +279,7 @@ summary{
   }
  
   .blog-info-header{
+    font-family: 'AmazonFont';
     margin-bottom: 14px;
     text-align: center; 
   }

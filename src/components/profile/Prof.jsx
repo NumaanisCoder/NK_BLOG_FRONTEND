@@ -6,6 +6,7 @@ import { useCookies } from "react-cookie";
 import "react-toastify/dist/ReactToastify.css";
 import "./Prof.css";
 import axios from "axios";
+import Instruction from "../Helper/Instruction";
 export default function Prof() {
   const token = Cookies.get("token");
   const [cookies, setCookie, removeCookie] = useCookies(["token"]);
@@ -178,7 +179,7 @@ export default function Prof() {
                 <div>
                   <details className="bloguser" key={data._id}>
                     <summary>
-                      {data.title} <span style={{float: "right", color: "gray"}}>{data.views} views</span>
+                      {data.title} <span style={{float: "right", color: "gray"}}>{Math.ceil(data.views / 2 )} views</span>
                        <br />
                       <span className="date">
                         Date: {random(data.createdAt)}
@@ -339,6 +340,7 @@ export default function Prof() {
             </div>
             <div className="form-group success">{success}</div>
           </form>
+          <Instruction/>
         </div>
       </div>
       <div className="lgdiv" style={{marginBottom: 80}}>

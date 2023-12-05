@@ -1,0 +1,25 @@
+.ResContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'AmazonFont';
+}
+
+.formGroup{
+    margin-top: 10px;
+}
+.formGroup > button{
+    padding: 4px 6px;
+    border-radius: 6px;
+    border: none;
+    color: white;
+    background-color: var(--main-color);
+}
+.formGroup > input{
+height: 25px;
+}
+.formGroup > p{
+    color: red;
+    font-size: small;
+}

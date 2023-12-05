@@ -1,0 +1,36 @@
+.OtpContainer{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.formGroup{
+    margin-top: 10px;
+
+}
+
+.form{
+    margin-top: 50px;
+    width: 30%;
+    font-family: 'AmazonFont';
+    align-items: center;
+}
+
+.formGroup > input{
+    width: 99%;
+    height: 25px;
+}
+
+.formGroup > button,.resendButton {
+  border: none;
+background-color: var(--main-color);
+  color: white;
+  padding: 6px 8px;
+  border-radius: 2px;
+  margin-bottom: 3px;
+}
+
+.formGroup > button:disabled, .resendButton:disabled{
+    background-color: red;
+
+}

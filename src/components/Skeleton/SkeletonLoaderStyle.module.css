@@ -1,0 +1,77 @@
+.Skeletoncontainer{
+    margin-bottom: 25px;
+    display: grid;
+    width: 100vw;
+    height: 40vh;
+    box-sizing: border-box;
+}
+.leftContainer{
+   margin: auto;
+    box-sizing: border-box;
+    border-radius: 20px;
+    height: 95%;
+    width: 95%;
+    background-size: 400%;
+    background-image: linear-gradient(to right, #f2f2f2 0%, #f2f2f2 30%, #d9d9d9 45%, #d9d9d9 50%,#f2f2f2 60%, #f2f2f2 100%);
+    animation: shimmer 1s linear infinite;
+   
+}
+.rightContainer{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    width: 100%;
+    
+}
+
+.heading{
+    margin: auto;
+    width: 95%;
+    border-radius: 5px;
+    animation: shimmer 1s linear infinite;
+    height: 20%;
+    background-size: 400%;
+    background-image: linear-gradient(to right, #f2f2f2 0%, #f2f2f2 30%, #d9d9d9 45%, #d9d9d9 50%,#f2f2f2 60%, #f2f2f2 100%);
+}
+.content{
+    margin: auto;
+    width: 95%;
+    border-radius: 5px;
+    animation: shimmer 1s linear infinite;
+    height: 20%;
+    background-size: 400%;
+    background-image: linear-gradient(to right, #f2f2f2 0%, #f2f2f2 30%, #d9d9d9 45%, #d9d9d9 50%,#f2f2f2 60%, #f2f2f2 100%);
+}
+.date{
+    margin: auto;
+    width: 95%;
+    border-radius: 5px;
+    animation: shimmer 1s linear infinite;
+    height: 20%;
+    background-size: 400%;
+    background-image: linear-gradient(to right, #f2f2f2 0%, #f2f2f2 30%, #d9d9d9 45%, #d9d9d9 50%,#f2f2f2 60%, #f2f2f2 100%);
+}
+
+@keyframes shimmer{
+  0%{
+    background-position: 100%;
+  }
+  100%{
+    background-position: 0%;
+  }
+}
+
+@media (min-width: 501px) {
+    .Skeletoncontainer{
+        grid-template-columns: 1fr 3fr;
+    }
+}
+
+@media (max-width: 500px) {
+    .Skeletoncontainer{
+        grid-template-rows: 3fr 2fr;
+    }
+
+}
