@@ -8,6 +8,7 @@ const Instruction = () => {
 1. **Headers:**
    - Use \`# \` for headings. Example: \`# Heading 1\`.
 
+
 2. **Emphasis (Bold and Italic):**
    - Use \`**\` for bold and \`*\` for italic. Example: \`**Bold Text**\` and \`*Italic Text*\`.
 

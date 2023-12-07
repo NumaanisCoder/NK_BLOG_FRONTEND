@@ -2,45 +2,30 @@
     position: sticky;
     top: 0;
     z-index: 10;
-    background-color: white;
-    box-shadow: 1px 1px 1px 1px  black;
-
+    background-color: var(--second-color);
+    box-shadow: 2px 2px 4px var(--main-color);
+    font-family: 'AmazonFontLight';
 }
 .NavUL{
-    padding: 10px;
     list-style: none;
-    text-decoration: none;
     display: flex;
-    align-items: center;
     justify-content: center;
+    padding: 6px 0px;
+    text-decoration: none;
 }
 
-@keyframes borderColor {
-    0%{
-        border-bottom-color: blue;
-    }
-    25%{
-        border-bottom-color: green;
-    }
-    50%{
-        border-bottom-color: purple;
-    }
-    75%{
-        border-bottom-color: yellow;
-    }
-    
-}
 .Navli{
-    font-family: 'AmazonFont';
+
     font-size: x-large;
     box-sizing: border-box; 
-    margin: 0px 35px;  
-    color: black;
+    padding: 13px 20px;
+    color: white;
     text-decoration: none;
 }
 
 .selected{
     border: 2px solid black;
     border-radius: 5px;
-    color: red;
+    color: black;
+    background-color: white;
 }

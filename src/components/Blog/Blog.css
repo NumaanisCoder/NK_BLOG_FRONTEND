@@ -22,33 +22,33 @@ p > img {
 
 
 .viewblog{
-    font-family: 'AmazonFont';
+    font-family: 'AmazonFontLight';
     box-sizing: border-box;
     padding: 4px;
     margin-bottom: 50px;
 }
 
 .blog-title{
-    font-family: 'AmazonFont';
+    font-family: 'AmazonFontLight';
     font-size: x-large;
     font-weight: 200;
     text-align: center;
     padding: 10px 0px 12px 0px;
 }
 .blog-content{
-    font-family: 'AmazonFont';
+    font-family: 'AmazonFontLight';
     text-align: left;
     white-space: pre-line;
     padding: 10px 4px 19px 15px;
     font-weight: 500;
 }
 .author{
-    font-family: 'AmazonFont';
-    color: rgb(145, 15, 231);
+    font-family: 'AmazonFontLight';
+    color: var(--main-color);
     font-weight: 500;
 }
 .author-p{
-    font-family: 'AmazonFont';
+    font-family: 'AmazonFontLight';
     font-weight: 500; 
     margin-left: 13px;
     margin-bottom: 5px;

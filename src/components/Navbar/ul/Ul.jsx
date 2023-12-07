@@ -6,8 +6,8 @@ const Ul = () => {
     <div className={style.navlinks}>
        <nav>
       <ul className={style.NavUL}>
-            <li className={style.Navli}><NavLink className={style.li} to='/' activeClassName={style.selected} >Home</NavLink></li>      
-            <li className={style.Navli}><NavLink className={style.li} to='/prof' activeClassName={style.selected}>Account</NavLink></li>    
+            <li className={style.Navli}><NavLink className={style.li} to='/' style={{color: 'white', textDecoration: "none"}} activeClassName={style.selected}>Home</NavLink></li>      
+            <li className={style.Navli}><NavLink className={style.li} to='/prof' style={{color: 'white', textDecoration: "none"}} activeClassName={style.selected}>Account</NavLink></li>    
         </ul>
       </nav>
     </div>

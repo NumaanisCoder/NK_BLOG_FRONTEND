@@ -1,6 +1,6 @@
 .container{
     display: flex;
-    font-family: 'AmazonFont';
+    font-family: 'AmazonFontLight';
     justify-content: center;
     align-items: center;
     margin: auto;
@@ -8,7 +8,7 @@
 
 .btnsexy{
     color: white;
-    background-color: rgb(145, 15, 231);
+    background-color: var(--main-color);
     width: 50px;
     font-weight: 500;
     padding: 5px;
@@ -28,7 +28,7 @@ label{
 .item{
     padding: 20px;
     width: 90%;
-    border: 2px solid rgb(145, 15, 231);
+    border: 2px solid var(--main-color);
 }
 .item h1{
     text-align: center;

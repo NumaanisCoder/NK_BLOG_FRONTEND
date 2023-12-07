@@ -16,7 +16,8 @@ body{
     color: black;
   }
   :root{
-    --main-color: rgb(145, 15, 231);
+    --main-color: #3185FC;
+    --second-color: black;
   }
   
   /* Style the rest of your components as needed */

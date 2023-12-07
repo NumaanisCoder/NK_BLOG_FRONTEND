@@ -5,19 +5,20 @@
 @font-face {
     font-family: 'AmazonFont';
     src: url('../../../Amazon-Ember-Medium.ttf') format('truetype');
-    font-weight: 100;
+}
+@font-face {
+    font-family: 'AmazonFontLight';
+    src: url('../../../BookerlyLCD_Rg.ttf') format('truetype');
 }
 
 .logo {
-    font-family: 'AmazonFont';
-    padding-top: 3px;
+    font-family: 'AmazonFontLight';
+    background-color: var(--main-color);
+    color: white;
+    display: flex;
+    justify-content: center;
+    padding: 9px 0px;
     width: 100%;
-    font-size: xx-large;
-    text-align: center;
-    background-color: white;
-    color: rgb(145, 15, 231);
-    /* -webkit-text-stroke-width: 0.5px; */
-    /* -webkit-text-stroke-color: rgb(232, 75, 240);  */
 }
 
 @keyframes colorchange {
@@ -44,14 +45,12 @@
 }
 
 .navphoto {
-    width: 98%;
+    width: 100%;
 }
 
 /* flex justify-center p-1 text-white font-extrabold text-center font-sans text-base */
 
 
-
-@media (max-width: 480px) {}
 
 nav {
     position: sticky;

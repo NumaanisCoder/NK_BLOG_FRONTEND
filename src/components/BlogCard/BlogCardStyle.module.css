@@ -9,8 +9,8 @@
     color: black;
     border-radius: 10px;
     row-gap: 2px;
-    box-shadow: 1px 1px 4px rgb(234, 49, 234);
-    font-family: 'AmazonFont';
+    box-shadow: 1px 1px 4px var(--main-color);
+    font-family: 'AmazonFontLight';
 }
 
 /* Styling Text */
@@ -21,20 +21,20 @@
 }
 
 .title {
-    font-family: 'AmazonFont';
+    font-family: 'AmazonFontLight';
     font-size: larger;
     padding: 2px 4px;
     text-align: center;
 }
 
 .username {
-    font-family: 'AmazonFont';
+    font-family: 'AmazonFontLight';
     text-align: left;
     padding: 4px 4px;
 }
 
 .content {
-    font-family: 'AmazonFont';
+    font-family: 'AmazonFontLight';
     margin-top: 10px;
     font-size: medium;
     padding: 4px 4px;
@@ -45,17 +45,17 @@
     margin-top: 5px;
    
 }
-.Link a{
+.Link > a{
     text-decoration: none;
-    font-family: 'AmazonFont';
+    font-family: 'AmazonFontLight';
     border: none;
     border-radius: 4px;
     padding: 4px 4px;
+    border-bottom: 4px solid var(--second-color);
     width: 30%;
     font-weight: 400;
     color: white;
-    background-color: rgb(145, 15, 231);
-
+    background-color: var(--main-color);
 }
 
 .Link a:hover {
@@ -64,7 +64,7 @@
 }
 
 .date {
-    font-family: 'AmazonFont';
+    font-family: 'AmazonFontLight';
     font-size: medium;
     padding: 4px 4px;
     margin-top: 5px;

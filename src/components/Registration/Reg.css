@@ -3,7 +3,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: 'AmazonFont';
+    font-family: 'AmazonFontLight';
 }
 
 .btnsubmit{
@@ -12,8 +12,8 @@
    padding: 3px 10px;
    height: 30px;
    border-radius: 5px;
-   border: 2px solid rgb(145, 15, 231);
-   background-color: rgb(145, 15, 231);
+   border: 2px solid var(--main-color);
+   background-color: var(--main-color);
    font-weight: 500;
 }
 .btnsubmit:hover{
@@ -31,7 +31,7 @@
     margin: 2px;
 }
 .navbtn{
-    font-family: 'AmazonFont';
+    font-family: 'AmazonFontLight';
     background-color: black;
     color: white;
     font-weight: 500;

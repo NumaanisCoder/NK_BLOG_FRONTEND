@@ -3,8 +3,8 @@
     text-align: center;
     font-size: medium;
     padding: 4px;
-    background-color: white;
-    color: rgb(145, 15, 231);
+    background-color: var(--main-color);
+    color: white;
     padding: 10px;
     box-sizing: border-box;
     border-top: 2px solid purple;
