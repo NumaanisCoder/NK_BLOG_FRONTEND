@@ -11,7 +11,7 @@
 }
 p > img {
     display: flex;
-    height: 200px;
+    width: 450px;
     object-fit: contain;
     border: 1px solid black;
     border-radius: 10px;
@@ -73,7 +73,7 @@ p > img {
         font-size: x-large;
     }
     p > img{
-        height: 180px;
+        width: 280px;
     }
     
 }

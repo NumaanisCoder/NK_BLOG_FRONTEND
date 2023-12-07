@@ -4,14 +4,12 @@ import ReactMarkdown from 'react-markdown';
 const Instruction = () => {
   const markdownContent = `
 **Instructions for Formatting:**
-
 1. **Headers:**
    - Use \`# \` for headings. Example: \`# Heading 1\`.
-
-
+   \n
 2. **Emphasis (Bold and Italic):**
    - Use \`**\` for bold and \`*\` for italic. Example: \`**Bold Text**\` and \`*Italic Text*\`.
-
+   <br><br>
 3. **Lists:**
    - Use \`-\` for bullet points and numbers for ordered lists. Example:
      \`\`\`markdown
@@ -20,7 +18,7 @@ const Instruction = () => {
      1. Numbered Item 1
      2. Numbered Item 2
      \`\`\`
-
+     \n
 4. **Links:**
    - Use \`[Link Text](URL)\`. Example: \`[Visit Example](https://www.example.com)\`.
 
