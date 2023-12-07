@@ -3,7 +3,7 @@
     top: 0;
     z-index: 10;
     background-color: var(--second-color);
-    box-shadow: 2px 2px 4px var(--main-color);
+    box-shadow: 1px 1px 4px var(--main-color);
     font-family: 'AmazonFontLight';
 }
 .NavUL{
