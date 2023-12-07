@@ -40,6 +40,11 @@
     padding: 4px 4px;
 }
 
+.linkCategoryDiv{
+    display: flex;
+    justify-content: space-around;
+}
+
 .Link {
    
     margin-top: 5px;
@@ -61,6 +66,9 @@
 .Link a:hover {
     opacity: .7;
     cursor: pointer;
+}
+.category{
+    padding: 4px 4px;
 }
 
 .date {

@@ -33,6 +33,7 @@ const Blog = () => {
         <div className='viewblog'>
         <h1 className='blog-title'>{blog.title}</h1>
         <p className='author-p'>Posted By: <span className='author'>{blog.user.username}</span></p>
+        <p className='category'>Category : <span style={{color: 'blue'}}>{blog.category}</span></p>
         <p style={{marginLeft: 14, fontWeight: 500}}>Total Views: <span style={{color: 'blue'}}>{Math.ceil(blog.views/2)}</span></p>
         <img src={blog.image} alt="" />
         <br />

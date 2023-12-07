@@ -40,7 +40,10 @@ const {username} = data.user;
         <p className={styles.username}>By <span style={{color: "var(--main-color)", fontWeight:600}}>{username}</span></p>
       </div>
         <p className={styles.content}>{removeMarkdown(Sliced)}....</p>
+        <div className={styles.linkCategoryDiv}>
         <p className={styles.Link}><Link to={`/blog/${urlpart}`}>Read More</Link></p>
+        <p className={styles.category}>Category: <span style={{color: "var(--main-color)", fontWeight:600}}>{category}</span></p>
+        </div>
         <p className={styles.date}>Date: <span style={{color: "var(--main-color)", fontWeight:600}}>{random(createdAt)}</span></p>
       </div>
     </div>

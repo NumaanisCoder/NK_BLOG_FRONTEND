@@ -53,6 +53,12 @@ p > img {
     margin-left: 13px;
     margin-bottom: 5px;
 }
+.category{
+    color: black;
+    font-weight: 500;
+    margin-left: 13px;
+    margin-bottom: 5px;
+}
 
 /* Styles for screens with a maximum width of 600 pixels */
 @media (min-width: 600px) {
