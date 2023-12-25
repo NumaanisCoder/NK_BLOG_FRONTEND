@@ -101,6 +101,7 @@ export default function Prof() {
       formData.append("title", formValues.title);
       formData.append("content", formValues.content);
       formData.append("category", formValues.category);
+      formData.append("summary", formValues.summary);
       formData.append("image", file);
       console.log("File is: ", formData.get("image"));
       axios
@@ -353,7 +354,6 @@ export default function Prof() {
             </div>
             <div className="form-group success">{success}</div>
           </form>
-          <Instruction/>
         </div>
       </div>
       <div className="lgdiv" style={{marginBottom: 80}}>

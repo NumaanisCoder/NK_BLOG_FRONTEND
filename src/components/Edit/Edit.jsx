@@ -18,7 +18,7 @@ const Edit = () => {
       const [blog, setblog] = useState(null);
       const [Loading, setLoading] = useState(false);
      
-    const initialValues = {title:"", content: "", category:""};
+    const initialValues = {title:"", content: "", category:"",summary:""};
     const [formValues, setFormValues] = useState(initialValues);
       
       function submitHandler(event) {
@@ -87,6 +87,7 @@ const Edit = () => {
         formData.append('title',formValues.title);
         formData.append('content',formValues.content);
         formData.append('category',formValues.category);
+        formData.append('summary',formValues.summary);
         formData.append('image',file)
         console.log("File is: ",formData.get('image'));
         console.log("Title is: ",formData.get('title'));
@@ -159,6 +160,19 @@ const Edit = () => {
   </div>
   <div className="form-group">
     <label style={{color
+    : "black"}} htmlFor="content">Summary</label>
+    <textarea
+      name="summary"
+      id="summary"
+      cols="50"
+      rows="10"
+      onChange={handleChange}
+      value={formValues.summary}
+      required
+    ></textarea>
+  </div>
+  <div className="form-group">
+    <label style={{color
     : "black"}} htmlFor="category">Category</label>
     <select
       name="category"
@@ -191,7 +205,6 @@ const Edit = () => {
   </div>
 </form>
 <div className="edit-helper">
-<Instruction/>
 </div>
     </div>
 ):(
