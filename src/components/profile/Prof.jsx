@@ -20,7 +20,7 @@ export default function Prof() {
   var [userBlogs, setuserBlogs] = useState(null);
   const [blogLoaded, setblogLoaded] = useState(false);
   const [showpost, setShowpost] = useState("Write Blog");
-  const initialValues = { title: "", image: "", content: "", category: "" };
+  const initialValues = { title: "", image: "", content: "",summary:"", category: "" };
   const [formValues, setFormValues] = useState(initialValues);
   const [formErrors, setformErrors] = useState({});
   const [button, setButton] = useState("Post");
@@ -307,6 +307,19 @@ export default function Prof() {
                 rows="10"
                 onChange={handleChange}
                 value={formValues.content}
+                required
+              ></textarea>
+            </div>
+            <div className="form-group">
+              <label style={{color
+    : "black"}} htmlFor="content">Summary</label>
+              <textarea
+                name="summary"
+                id="summary"
+                cols="50"
+                rows="10"
+                onChange={handleChange}
+                value={formValues.summary}
                 required
               ></textarea>
             </div>
