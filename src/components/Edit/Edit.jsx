@@ -170,6 +170,7 @@ const Edit = () => {
       value={formValues.summary}
       required
     ></textarea>
+    <p>{formValues.summary.length}</p>
   </div>
   <div className="form-group">
     <label style={{color

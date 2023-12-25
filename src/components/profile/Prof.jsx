@@ -323,6 +323,7 @@ export default function Prof() {
                 value={formValues.summary}
                 required
               ></textarea>
+              <p>{formValues.summary.length}</p>
             </div>
             <div className="form-group">
               <label style={{color
