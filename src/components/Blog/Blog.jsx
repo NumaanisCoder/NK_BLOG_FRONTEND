@@ -38,7 +38,7 @@ const Blog = () => {
         <img src={blog.image} alt="" />
         <br />
        
-        <ReactMarkdown className="blog-content">{blog.content}</ReactMarkdown>
+        <p className="blog-content"  dangerouslySetInnerHTML={{ __html: blog.content }}></p>
    
 
         <WhatsAppShareButton shareUrl={`https://contentcanvas.netlify.app/blog/${blog.title.replace(/ /g,"~")}`}/>
