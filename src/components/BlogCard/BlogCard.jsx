@@ -13,6 +13,9 @@ function random(milliseconds) {
   const formattedDate = date.toLocaleString();
   return formattedDate;
 } 
+function removeHtmlTags(input) {
+  return input.replace(/<\/?[^>]+(>|$)/g, "");
+}
 
 useEffect(() => {
   const handleResize = () => {
@@ -39,7 +42,7 @@ const {username} = data.user;
         <h2 className={styles.title}>{title}</h2>
         <p className={styles.username}>By <span style={{color: "var(--main-color)", fontWeight:600}}>{username}</span></p>
       </div>
-        <p className={styles.content}>{removeMarkdown(Sliced)}....</p>
+        <p className={styles.content}>{removeHtmlTags(Sliced)}....</p>
         <div className={styles.linkCategoryDiv}>
         <p className={styles.Link}><Link to={`/blog/${urlpart}`}>Read More</Link></p>
         <p className={styles.category}>Category: <span style={{color: "var(--main-color)", fontWeight:600}}>{category}</span></p>
