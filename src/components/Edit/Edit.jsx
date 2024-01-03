@@ -194,6 +194,7 @@ const Edit = () => {
       <option value="Movie">Movie</option>
       <option value="Sports">Sports</option>
       <option value="News">News</option>
+      <option value="Tutorial">Tutorial</option>
     </select>
   </div>
   <div className="form-group">
